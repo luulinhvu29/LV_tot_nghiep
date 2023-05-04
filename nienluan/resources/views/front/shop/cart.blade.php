@@ -48,13 +48,16 @@
                                     <td class="cart-pic first-row" ><img style="height: 170px" src="front/img/products/{{ $cart->options->images[0]->path }}" alt=""></td>
                                     <td class="cart-title first-row">
                                         @if($cart->size)
+                                            <li hidden id="max" value="{{ \App\Models\ProductDetail::where('size',$cart->size)->where('product_id', $cart->id)->get()->first()->qty }}"></li>
                                             <h5>{{ $cart->name }} - {{ $cart->size }}</h5>
                                         @else
+                                            <li hidden id="max" value="{{ \App\Models\Product::where('id', $cart->id)->get()->first()->qty }}"></li>
                                             <h5>{{ $cart->name }}</h5>
                                         @endif
                                     </td>
                                     <td class="p-price first-row">${{ number_format($cart->price, 2) }}</td>
                                     <td class="qua-col first-row">
+
                                         <div class="quantity">
                                             <div class="pro-qty">
                                                 <input id="qty-{{ $cart->rowId }}" type="text" value="{{ $cart->qty }}" data-rowid="{{ $cart->rowId }}">
@@ -106,13 +109,3 @@
 
 @endsection
 
-<script>
-    function save(id){
-        $.ajax({
-           url: 'Save/'+id+'/'+$("qty"+id).val(),
-            type: 'GET',
-        }).done(function(respone){
-            console.log(response);
-        });
-    }
-</script>

@@ -10,5 +10,6 @@ interface RepositoryInterface
     public function update(array $data, $id);
     public function delete($id);
 
+    public function where($field, $con);
     public function searchAndPaginate($searchBy, $keyword, $perPage=5);
 }

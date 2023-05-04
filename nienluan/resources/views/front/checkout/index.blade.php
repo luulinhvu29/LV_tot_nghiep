@@ -42,10 +42,7 @@
                                     <label for="last">Họ <span>*</span></label>
                                     <input type="text" id="last" name="last_name">
                                 </div>
-                                <div class="col-lg-12">
-                                    <label for="com">Công ty / Cơ quan</label>
-                                    <input type="text" id="com" name="company_name" value="{{ Auth::user()->company_name ?? '' }}">
-                                </div>
+
                                 <div class="col-lg-12">
                                     <label for="coun">Quốc gia<span>*</span></label>
                                     <input type="text" id="coun" name="country" value="{{ Auth::user()->country ?? '' }}">

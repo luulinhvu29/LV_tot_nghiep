@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\User;
 use App\Services\Address\AddressServiceInterface;
 use App\Services\Order\OrderServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
 use App\Services\Product\ProductServiceInterface;
+use App\Services\ProductComment\ProductCommentServiceInterface;
 use App\Services\ProductDetail\ProductDetailServiceInterface;
 use App\Services\User\UserServiceInterface;
 use App\Utilities\Common;
@@ -17,7 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Hash;
-
+use Laravel\Socialite\Facades\Socialite;
 
 
 class AccountController extends Controller
@@ -30,6 +32,7 @@ class AccountController extends Controller
     private $productService;
     private $productDetailService;
     private $addressService;
+    private $productCommentService;
 
     public function __construct(UserServiceInterface $userService,
                                 OrderServiceInterface $orderService,
@@ -37,6 +40,7 @@ class AccountController extends Controller
                                 ProductServiceInterface $productService,
                                 ProductDetailServiceInterface $productDetailService,
                                 AddressServiceInterface $addressService,
+                                ProductCommentServiceInterface $productCommentService,
     )
     {
         $this->userService = $userService;
@@ -45,6 +49,7 @@ class AccountController extends Controller
         $this->productService = $productService;
         $this->productDetailService = $productDetailService;
         $this->addressService = $addressService;
+        $this->productCommentService = $productCommentService;
 
     }
 
@@ -73,6 +78,7 @@ class AccountController extends Controller
         }
 
     }
+
 
     public function logout(){
         Auth::Logout();
@@ -162,6 +168,32 @@ class AccountController extends Controller
         $address = $this->addressService->find($order->address);
 
         return view('front.account.my-order.show', compact('order', 'address'));
+    }
+
+    public function myOrderComment($id){
+
+        $order = $this->orderService->find($id);
+
+
+        return view('front.account.my-order.comment', compact('order'));
+    }
+
+    public function postOrderComment(Request $request, $id){
+
+        $orderDetail = $this->orderDetailService->find($id);
+
+        $data = [
+            'rating' => $request->rating,
+            'user_id' => Auth::id(),
+            'name' => User::find(Auth::id())->name,
+            'email' => User::find(Auth::id())->email,
+            'messages' => $request->messages,
+            'product_id' => $orderDetail->product->id,
+        ];
+
+        $this->productCommentService->create($data);
+
+        return back();
     }
 
     public function myOrderCancel($id){
@@ -324,4 +356,6 @@ class AccountController extends Controller
 
         return redirect('account/address');
     }
+
+
 }

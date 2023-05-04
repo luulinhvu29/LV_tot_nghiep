@@ -42,10 +42,7 @@
                                 <label for="last">Last Name</label>
                                 <input disabled type="text" id="last" value="{{ $order->last_name }}">
                             </div>
-                            <div class="col-lg-12">
-                                <label for="com">Company Name</label>
-                                <input disabled type="text" id="com" value="{{ $order->company_name }}">
-                            </div>
+
                             <div class="col-lg-12">
                                 <label for="coun">Country</label>
                                 <input disabled type="text" id="coun" value="{{ $order->country }}">
@@ -66,6 +63,11 @@
                             <div class="col-lg-12">
                                 <label for="phone">Ngày đặt hàng</label>
                                 <input disabled type="text" id="created_at" value="{{ $order->created_at }}">
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="phone">Ngày hoàn thành giao hàng</label>
+                                <input disabled type="text" id="created_at" value="{{ $order->finish_day }}">
                             </div>
                         </div>
                     </div>

@@ -96,7 +96,11 @@
                                         </ul>
                                     @else
                                         <ul class="pd-tags">
-                                            <li id="max" value="{{ $product->qty }}"><span>Số lượng:</span> {{ $product->qty }}</li>
+                                            @if($cart)
+                                                <li id="max" value="{{ $product->qty - $cart->qty }}"><span>Số lượng:</span> {{ $product->qty }} </li>
+                                            @else
+                                                <li id="max" value="{{ $product->qty}}"><span>Số lượng:</span> {{ $product->qty }} </li>
+                                            @endif
                                         </ul>
                                     @endif
 

@@ -3,17 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\User;
+use App\Services\Address\AddressServiceInterface;
 use App\Services\Order\OrderServiceInterface;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
 
     private $orderService;
+    private $addressService;
 
-    public function __construct(OrderServiceInterface $orderService)
+    public function __construct(OrderServiceInterface $orderService,
+                                AddressServiceInterface $addressService,)
     {
         $this->orderService = $orderService;
+        $this->addressService = $addressService;
     }
 
     /**
@@ -23,7 +30,10 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        $orders = $this->orderService->searchAndPaginate('first_name',$request->get('search'));
+        $orders = Order::where('hide', false);
+        $orders = $this->orderService->searchAndPaginate('first_name',$request->get('search'), 100)->where('hide', false);
+
+
 
         return view('admin.order.index', compact('orders'));
     }
@@ -72,9 +82,12 @@ class OrderController extends Controller
     {
         $order = $this->orderService->find($id);
 
+        $users = User::all();
+        $users = $users->where('level',Constant::user_level_partner);
 
 
-        return view('admin.order.edit', compact('order'));
+
+        return view('admin.order.edit', compact('order','users'));
     }
 
     /**
@@ -102,6 +115,13 @@ class OrderController extends Controller
     public function destroy($id)
     {
         $this->orderService->delete($id);
+
+        return redirect('admin/order');
+    }
+
+    public function hide($id){
+        $data['hide'] = true;
+        $this->orderService->update($data, $id);
 
         return redirect('admin/order');
     }

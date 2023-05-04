@@ -104,6 +104,24 @@
                                 </div>
 
                                 <div class="position-relative row form-group">
+                                    <label for="partner_id" class="col-md-3 text-md-right col-form-label">Partner</label>
+                                    <div class="col-md-9 col-xl-8">
+
+                                        <select name="partner_id" id="partner_id" class="form-control">
+                                            <option value="">-- Partner --</option>
+
+                                            @foreach($users as $user)
+                                                <option value={{ $user->id }}>
+                                                    {{ $user->name }}
+                                                </option>
+                                            @endforeach
+
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="position-relative row form-group">
                                     <label for="name" class="col-md-3 text-md-right col-form-label">
                                         Full Name
                                     </label>
@@ -132,34 +150,21 @@
                                     <label for="street_address" class="col-md-3 text-md-right col-form-label">
                                         Street Address</label>
                                     <div class="col-md-9 col-xl-8">
-                                        <input required name="street_address" id="street_address"
-                                               placeholder="Address" type="text" class="form-control" value="{{ $order->street_address }}">
+                                        <p>
+                                            {{ \App\Models\Address::find($order->address)->address }}, {{ \App\Models\Address::find($order->address)->village }},
+                                            {{ \App\Models\Address::find($order->address)->town }}, {{ \App\Models\Address::find($order->address)->city }}
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div class="position-relative row form-group">
-                                    <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                        Town City</label>
-                                    <div class="col-md-9 col-xl-8">
-                                        <input required name="town_city" id="town_city"
-                                               placeholder="Town city" type="text" class="form-control" value="{{ $order->town_city }}">
-                                    </div>
-                                </div>
 
                                 <div class="position-relative row form-group">
                                     <label for="country"
                                         class="col-md-3 text-md-right col-form-label">Country</label>
                                     <div class="col-md-9 col-xl-8">
-                                        <input required name="country" id="country"
-                                               placeholder="Country" type="text" class="form-control" value="{{ $order->country }}">
-                                    </div>
-                                </div>
-
-                                <div class="position-relative row form-group">
-                                    <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                        Postcode Zip</label>
-                                    <div class="col-md-9 col-xl-8">
-                                        <p>{{ $order->postcode_zip }}</p>
+                                        <p>
+                                            {{ $order->country }}
+                                        </p>
                                     </div>
                                 </div>
 

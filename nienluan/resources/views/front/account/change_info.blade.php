@@ -65,16 +65,6 @@
                             </div>
 
 
-                            <div class="position-relative row form-group">
-                                <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                    Company Name
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="company_name" id="company_name"
-                                           placeholder="Company Name" type="text" class="form-control"
-                                           value="{{ $user->company_name }}">
-                                </div>
-                            </div>
 
                             <div class="position-relative row form-group">
                                 <label for="country"
@@ -82,38 +72,6 @@
                                 <div class="col-md-9 col-xl-8">
                                     <input name="country" id="country" placeholder="Country"
                                            type="text" class="form-control" value="{{ $user->country }}">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                    Street Address
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="street_address" id="street_address"
-                                           placeholder="Street Address" type="text" class="form-control"
-                                           value="{{ $user->street_address }}">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                    Postcode Zip
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="postcode_zip" id="postcode_zip"
-                                           placeholder="Postcode Zip" type="text" class="form-control"
-                                           value="{{ $user->postcode_zip }}">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                    Town City
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="town_city" id="town_city" placeholder="Town City"
-                                           type="text" class="form-control" value="{{ $user->town_city }}">
                                 </div>
                             </div>
 

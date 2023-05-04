@@ -18,6 +18,10 @@ class Order extends Model
     }
 
     public function address(){
-        return $this->belongsTo(Address::class, 'address', 'id');
+        return $this->belongsTo(Address::class, 'address', 'address');
+    }
+
+    public function partner(){
+        return $this->belongsTo(User::class,'partner_id','id');
     }
 }

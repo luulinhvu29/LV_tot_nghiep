@@ -334,8 +334,6 @@ function addCart(productId){
     });
 }
 
-
-
 function removeCart(rowId){
     $.ajax({
         type: "GET",
@@ -408,12 +406,12 @@ function addToCart(productId, qty){
     var max = document.getElementById("max");
 
     // Ràng buộc giá trị tối đa cho input
-    inputQty.max = max.value;
+    max = max.value;
 
     var quty = inputQty.value;
     // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
-    if (quty > inputQty.max) {
-        alertify.error("Số lượng sản phẩm vượt quá giới hạn cho phép (tối đa là " + inputQty.max + ")");
+    if (quty > max) {
+        alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
         return;
     }
 
@@ -462,6 +460,24 @@ function addToCart(productId, qty){
 
 
 function addToCartS(productId, qty){
+
+    /// Lấy đối tượng input từ ID của nó
+    var inputQty = document.getElementById("qty-addtocart-S-"+productId);
+
+
+    var max = document.getElementById("max");
+
+    // Ràng buộc giá trị tối đa cho input
+    max = max.value;
+
+    var quty = inputQty.value;
+    // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
+    if (quty > max) {
+        alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
+        return;
+    }
+
+
     $.ajax({
         type: "GET",
         url: "cart/addToCartS",
@@ -506,6 +522,23 @@ function addToCartS(productId, qty){
 }
 
 function addToCartM(productId, qty){
+
+    /// Lấy đối tượng input từ ID của nó
+    var inputQty = document.getElementById("qty-addtocart-M-"+productId);
+
+
+    var max = document.getElementById("max");
+
+    // Ràng buộc giá trị tối đa cho input
+    max = max.value;
+
+    var quty = inputQty.value;
+    // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
+    if (quty > max) {
+        alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
+        return;
+    }
+
     $.ajax({
         type: "GET",
         url: "cart/addToCartM",
@@ -550,6 +583,23 @@ function addToCartM(productId, qty){
 }
 
 function addToCartL(productId, qty){
+
+    /// Lấy đối tượng input từ ID của nó
+    var inputQty = document.getElementById("qty-addtocart-L-"+productId);
+
+
+    var max = document.getElementById("max");
+
+    // Ràng buộc giá trị tối đa cho input
+    max = max.value;
+
+    var quty = inputQty.value;
+    // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
+    if (quty > max) {
+        alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
+        return;
+    }
+
     $.ajax({
         type: "GET",
         url: "cart/addToCartL",
@@ -594,6 +644,24 @@ function addToCartL(productId, qty){
 }
 
 function addToCartXS(productId, qty){
+
+    /// Lấy đối tượng input từ ID của nó
+    var inputQty = document.getElementById("qty-addtocart-XS-"+productId);
+
+
+    var max = document.getElementById("max");
+
+    // Ràng buộc giá trị tối đa cho input
+    max = max.value;
+
+    var quty = inputQty.value;
+    // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
+    if (quty > max) {
+        alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
+        return;
+    }
+
+
     $.ajax({
         type: "GET",
         url: "cart/addToCartXS",
@@ -639,6 +707,23 @@ function addToCartXS(productId, qty){
 
 
 function updateCart(rowId){
+
+    // Lấy đối tượng input từ ID của nó
+    var inputQty = document.getElementById("qty-"+rowId);
+
+    var max = document.getElementById("max");
+
+    // Ràng buộc giá trị tối đa cho input
+    max = max.value;
+
+    var quty = inputQty.value;
+    // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
+    if (quty > max) {
+        alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
+        document.getElementById("qty-"+rowId).value = max;
+        return;
+    }
+
     $.ajax({
         type: "GET",
         url: "cart/update",

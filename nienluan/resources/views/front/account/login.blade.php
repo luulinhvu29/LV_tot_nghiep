@@ -61,6 +61,14 @@
                             <h4>Hoặc</h4>
                             <a href="./account/register" class="or-login">Tạo tài khoản mới</a>
                         </div>
+
+                        <div class="switch-login">
+                            <h4>Đăng nhập bằng</h4>
+                            <a type="button" href="./google" class="google-login" title="Login with Google">
+                                <img src="front/img/google-icon.png" alt="Google" style="height: 100px; width: 100px "/>
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </div>

@@ -20,6 +20,9 @@
 
     <link href="./dashboard/main.css" rel="stylesheet">
     <link href="./dashboard/my_style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./dashboard/jquery.datetimepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <body>
@@ -1290,6 +1293,7 @@
                             </a>
                             <ul>
 
+
                                 @if(Auth::user()->authority[0]->user == true)
                                     <li>
                                         <a href="./admin/user" class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
@@ -1337,6 +1341,12 @@
                                         </a>
                                     </li>
                                 @endif
+
+                                <li>
+                                    <a href="./admin/statistics" class="{{ (request()->segment(2) == 'statistics') ? 'mm-active' : '' }}">
+                                        <i class="metismenu-icon"></i>Thống kê
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -2527,6 +2537,10 @@
 
 <script type="text/javascript" src="./dashboard/assets/scripts/main.js"></script>
 <script type="text/javascript" src="./dashboard/assets/scripts/my_script.js"></script>
+
+
+<script src="./dashboard/assets/scripts/jquery.datetimepicker.full.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 
 </html>

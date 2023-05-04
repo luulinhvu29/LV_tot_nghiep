@@ -103,29 +103,16 @@
                             </div>
 
                             <div class="position-relative row form-group">
-                                <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                    Company Name
-                                </label>
+                                <label for="street_address" class="col-md-3 text-md-right col-form-label">Address</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <p>{{ $order->company_name }}</p>
+                                    <p>
+                                        {{ \App\Models\Address::find($order->address)->address }}, {{ \App\Models\Address::find($order->address)->village }},
+                                        {{ \App\Models\Address::find($order->address)->town }}, {{ \App\Models\Address::find($order->address)->city }}
+                                    </p>
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group">
-                                <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                    Street Address</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <p>{{ $order->street_address }}</p>
-                                </div>
-                            </div>
 
-                            <div class="position-relative row form-group">
-                                <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                    Town City</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <p>{{ $order->town_city }}</p>
-                                </div>
-                            </div>
 
                             <div class="position-relative row form-group">
                                 <label for="country"
@@ -135,13 +122,7 @@
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group">
-                                <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                    Postcode Zip</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <p>{{ $order->postcode_zip }}</p>
-                                </div>
-                            </div>
+
 
                             <div class="position-relative row form-group">
                                 <label for="payment_type" class="col-md-3 text-md-right col-form-label">Payment Type</label>
@@ -172,18 +153,11 @@
                                 <div class="col-md-9 col-xl-8 offset-md-2">
                                     <a href="./admin/order" class="border-0 btn btn-outline-danger mr-1">
                                                         <span class="btn-icon-wrapper pr-1 opacity-8">
-                                                            <i class="fa fa-times fa-w-20"></i>
+                                                            <i class="fa fa-reply fa-w-20"></i>
                                                         </span>
-                                        <span>Cancel</span>
+                                        <span>Quay về</span>
                                     </a>
 
-                                    <button type="submit"
-                                            class="btn-shadow btn-hover-shine btn btn-primary">
-                                                        <span class="btn-icon-wrapper pr-2 opacity-8">
-                                                            <i class="fa fa-download fa-w-20"></i>
-                                                        </span>
-                                        <span>Save</span>
-                                    </button>
                                 </div>
                             </div>
                         </div>

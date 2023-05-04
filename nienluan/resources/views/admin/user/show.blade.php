@@ -77,44 +77,12 @@
                             </div>
                         </div>
 
-                        <div class="position-relative row form-group">
-                            <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                Company Name
-                            </label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $user->company_name }}</p>
-                            </div>
-                        </div>
 
                         <div class="position-relative row form-group">
                             <label for="country"
                                    class="col-md-3 text-md-right col-form-label">Country</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $user->country }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                Street Address</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $user->street_address }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                Postcode Zip</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $user->postcode_zip }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                Town City</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $user->town_city }}</p>
                             </div>
                         </div>
 
@@ -137,6 +105,18 @@
                                    class="col-md-3 text-md-right col-form-label">Description</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $user->description }}</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group mb-1">
+                            <div class="col-md-9 col-xl-8 offset-md-2">
+                                <a href="./admin/user" class="border-0 btn btn-outline-danger mr-1">
+                                                        <span class="btn-icon-wrapper pr-1 opacity-8">
+                                                            <i class="fa fa-reply fa-w-20"></i>
+                                                        </span>
+                                    <span>Quay về</span>
+                                </a>
+
                             </div>
                         </div>
                     </div>

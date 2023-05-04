@@ -72,17 +72,17 @@
                                 alt="">
                         </td>
 
-                        @if($order->payment_type == "pay_later")
+                        @if($order->payment_type == "pay_later" and $order->status != \App\Utilities\Constant::order_status_Shipping)
                             <td class="pl-3" style=" padding-left:15px;">
                                 <span class="d-inline"
                                       style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
                                         Bạn sẽ thanh toán khi nhận hàng.
-                                        Chúng tôi vừa bàn giao đơn đặt hàng của bạn cho một đối tác vận chuyển.
+                                        Đơn đặt hàng của bạn đang được chuyển sang cho 1 đối tác vận chuyển.
                                 </span>
                             </td>
                         @endif
 
-                        @if($order->payment_type == "online_payment")
+                        @if($order->payment_type == "online_payment" and $order->status != \App\Utilities\Constant::order_status_Shipping)
                             <td class="pl-3" style=" padding-left:15px;">
                                 <span class="d-inline"
                                       style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
@@ -95,6 +95,17 @@
                                      width="130px" style="margin-top: 10px;" alt="">
                             </td>
                         @endif
+
+                        @if($order->status != \App\Utilities\Constant::order_status_Shipping)
+                            <td class="pl-3" style=" padding-left:15px;">
+                                <span class="d-inline"
+                                      style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
+                                        Đơn đặt hàng của bạn đang được vận chuyển.
+                                        Bạn sẽ được nhận hàng sớm thôi.
+                                </span>
+                            </td>
+                        @endif
+
 
                     </tr>
                 </table>

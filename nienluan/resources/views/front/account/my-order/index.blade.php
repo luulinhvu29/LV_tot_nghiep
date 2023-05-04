@@ -24,23 +24,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-{{--                    <div class="col-lg-8 offset-lg-1">--}}
-{{--                        <div class="filter-control">--}}
-{{--                            <ul>--}}
-{{--                                <li class="item active" data-status="*">Tất cả ({{ count($orders) }})</li>--}}
-{{--                                <li class="item" data-status=".Cancel">Cancel ({{ count($orderCancel) }})</li>--}}
-{{--                                <li class="item" data-status=".Shipping">Shipping ({{ count($orderShipping) }})</li>--}}
-{{--                                <li class="item" data-status=".ReceivedOrder">Received ({{ count($orderReceivedOrder) }}) </li>--}}
-{{--                                <li class="item" data-status=".Finish">Finish ({{ count($orderFinish) }})</li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                        <div class="product-slider owl-carousel order">--}}
-
-
-
-{{--                        </div>--}}
-{{--                    </div>--}}
-
                     <div class="product-show-option">
                         <div class="row">
                             <div class="col-lg-7 col-md-7">
@@ -109,11 +92,15 @@
                                         {{ \App\Utilities\Constant::$order_status[$order->status] }}
                                     </td>
                                     <td class="text-center first-row">
-                                        <a class="btn btn-hover-shine btn-outline-primary border-0 btn-sm" href="./account/my-order/{{ $order->id }}">Details</a>
+                                        <a class="btn btn-hover-shine btn-outline-primary border-0 btn-sm" href="./account/my-order/{{ $order->id }}">Chi tiết</a>
                                     </td>
 
-                                    @if($order->status==0 or $order->status>3)
+                                    @if($order->status==0 or ($order->status>3 and $order->status<\App\Utilities\Constant::order_status_Finish))
                                         <td></td>
+                                    @elseif($order->status === \App\Utilities\Constant::order_status_Finish)
+                                        <td class="text-center first-row">
+                                            <a class="btn btn-hover-shine btn-outline-primary border-0 btn-sm" href="./account/my-order/comment/{{ $order->id }}">Bình luận</a>
+                                        </td>
                                     @else
                                         <td class="text-center first-row">
                                             <form class="d-inline" action="./account/my-order/cancel/{{ $order->id }}" method="post">

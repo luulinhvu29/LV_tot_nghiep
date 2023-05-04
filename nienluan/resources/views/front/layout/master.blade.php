@@ -45,6 +45,8 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+{{--    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">--}}
 </head>
 
 <body>
@@ -109,24 +111,19 @@
                                 <button type="button" class="category-btn">Tìm kiếm</button>
                                 <div class="input-group" id="input-container">
                                     <input name="search" type="text" placeholder="Nhập sản phẩm cần tìm" value="" id="convert_text" style="color: black">
-{{--                                    <textarea name="search" id="convert_text" placeholder="Nhập sản phẩm cần tìm" style="width: 400px; height: 30px; padding-left: 20px; padding-top: 10px">--}}
-{{--                                         {{ request('search') }}--}}
-{{--                                    </textarea>--}}
                                     <button type="submit"><i class="ti-search"></i> </button>
                                 </div>
                             </div>
                         </form>
 
                     </div>
-                    <button id="click_to_convert"><i class="ti-microphone" style="height: 10px; color: blue"></i></button>
+
+                    <a id="click_to_convert" class="btn">
+                        <img src="front/img/voice-search.png" alt="Google" style="height: 40px"/>
+                    </a>
+
                     <div class="col-lg-3 col-md-3 text-right">
                         <ul class="nav-right">
-                            <li class="heart-icon">
-                                <a href="#">
-                                    <i class="icon_heart_alt"></i>
-                                    <span>1</span>
-                                </a>
-                            </li>
                             <li class="cart-icon">
                                 <a href="./cart">
                                     <i class="icon_bag_alt"></i>
@@ -145,7 +142,7 @@
                                                             <div class="product-selected">
                                                                 <p>${{ $cart->price }} x {{ $cart->qty }}</p>
                                                                 @if($cart->size)
-                                                                <h6>{{ $cart->name }} - {{ $cart->size }}</h6>
+                                                                    <h6>{{ $cart->name }} - {{ $cart->size }}</h6>
                                                                 @else
                                                                     <h6>{{ $cart->name }}</h6>
                                                                 @endif
@@ -344,6 +341,7 @@
         </div>
     </footer>
 
+
     <!-- Js Plugins -->
     <script src="front/js/jquery-3.3.1.min.js"></script>
     <script src="front/js/bootstrap.min.js"></script>
@@ -364,6 +362,25 @@
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
     <script type="text/javascript" src="./dashboard/assets/scripts/my_script.js"></script>
+
+
+
+    <script>
+        var mess = 'Hello {{ Auth::check() ?  Auth::user()->name : ''}}';
+
+        var botmanWidget = {
+            aboutText:'Linh Vu Fashion Shop',
+            introMessage: mess +  ' Chào mừng đến với Linh Vu Shop',
+            placeholderText: 'Send a message',
+            mainColor: '#00dd1c',
+            bubbleBackground: '#ffffff',
+            bubbleAvatarUrl: 'front/img/products/chat2.jpg',
+
+        };
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
+
 
 
 </body>

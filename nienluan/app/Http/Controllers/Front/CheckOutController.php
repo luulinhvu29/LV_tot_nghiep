@@ -8,6 +8,7 @@ use App\Services\Order\OrderServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
 use App\Services\Product\ProductServiceInterface;
 use App\Services\ProductDetail\ProductDetailServiceInterface;
+use App\Utilities\Common;
 use App\Utilities\Constant;
 use App\Utilities\VNPay;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -151,6 +152,9 @@ class CheckOutController extends Controller
                 $total = Cart::total();
                 $subtotal = Cart::subtotal();
                 $this->sendEmail($order, $total, $subtotal); // Goi ham gui email
+
+                $data['status'] = Constant::order_status_Paid;
+                $this->orderService->update($data, $vnp_TxnRef );
 
                 Cart::destroy();
 

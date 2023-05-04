@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductComment;
+use App\Models\User;
 use App\Services\BaseService;
 use App\Services\Brand\BrandServiceInterface;
 use App\Services\Product\ProductServiceInterface;
@@ -14,6 +15,7 @@ use App\Services\ProductComment\ProductCommentServiceInterface;
 use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
@@ -45,8 +47,7 @@ class ShopController extends Controller
         $product = $this->productService->find($id);
         $relatedProducts = $this->productService->getRelatedProducts($product);
 
-        $cart = Cart::content($id);
-
+        $cart = Cart::content()->where('id', $id)->first();
 
         return view('front.shop.show', compact('product','categories','brands','relatedProducts','cart'));
     }
@@ -88,7 +89,7 @@ class ShopController extends Controller
         $product = $this->productService->find($id);
         $relatedProducts = $this->productService->getRelatedProducts($product);
 
-        $cart = Cart::content($id);
+        $cart = Cart::content()->where('id', $id)->first();
 
 
         return view('front.shop.show1', compact('product','categories','brands','relatedProducts','cart'));
@@ -103,7 +104,7 @@ class ShopController extends Controller
         $product = $this->productService->find($id);
         $relatedProducts = $this->productService->getRelatedProducts($product);
 
-        $cart = Cart::content($id);
+        $cart = Cart::content()->where('id', $id)->first();
 
 
         return view('front.shop.show2', compact('product','categories','brands','relatedProducts','cart'));
@@ -118,7 +119,7 @@ class ShopController extends Controller
         $product = $this->productService->find($id);
         $relatedProducts = $this->productService->getRelatedProducts($product);
 
-        $cart = Cart::content($id);
+        $cart = Cart::content()->where('id', $id)->first();
 
 
         return view('front.shop.show3', compact('product','categories','brands','relatedProducts','cart'));
@@ -133,7 +134,7 @@ class ShopController extends Controller
         $product = $this->productService->find($id);
         $relatedProducts = $this->productService->getRelatedProducts($product);
 
-        $cart = Cart::content($id);
+        $cart = Cart::content()->where('id', $id)->first();
 
 
         return view('front.shop.show4', compact('product','categories','brands','relatedProducts','cart'));

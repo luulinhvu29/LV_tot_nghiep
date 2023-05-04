@@ -10,15 +10,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black Friday</h1>
-                            <p>faraafaffdfsaafsafdfafs
-                                dssafsaffaf</p>
-                            <a href="#" class="primary-btn">Shop Now</a>
+                            <h1>Fashion Shop</h1>
+                            <p>Shop thời trang hàng đầu Việt Nam</p>
+                            <a href="./shop" class="primary-btn">Mua sắm ngay</a>
                         </div>
                     </div>
                     <div class="off-card">
-                        <h2>Sale <span>50%</span></h2>
+                        <h2>Mua <span>ngay</span></h2>
                     </div>
                 </div>
             </div>
@@ -26,11 +24,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black Friday</h1>
-                            <p>faraafaffdfsaafsafdfafs
-                                dssafsaffaf</p>
-                            <a href="#" class="primary-btn">Shop Now</a>
+                            <h1>Giá rẻ sập sàn</h1>
+                            <p>Rẻ đến bất ngờ đó nha <3</p>
+                            <a href="./shop" class="primary-btn">Mua sắm ngay</a>
                         </div>
                     </div>
                     <div class="off-card">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductDetail;
 use App\Services\Product\ProductServiceInterface;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -70,6 +71,7 @@ class CartController extends Controller
         }
 
         return back();
+
     }
 
     public function addToCartS(Request $request){
@@ -182,9 +184,7 @@ class CartController extends Controller
         $total = Cart::total();
         $subtotal = Cart::subtotal();
 
-        $products = DB::table('products')->get();
-
-        return view('front.shop.cart', compact('carts','total','subtotal','products'));
+        return view('front.shop.cart', compact('carts','total','subtotal'));
     }
 
     public function delete(Request $request){

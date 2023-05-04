@@ -18,67 +18,6 @@
         </div>
     </div>
 
-
-    <!-- My Order -->
-    <section class="shopping-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="cart-table">
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Địa chỉ</th>
-                                    <th>Chi tiết</th>
-                                    <th>Xóa</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            @foreach($addresses as $address)
-                                <tr>
-                                    <td class="first-row">
-                                        {{ $address->address }}, {{ $address->village }}, {{ $address->town }}, {{ $address->city }}
-                                    </td>
-
-                                    <td class="text-center first-row">
-                                        <a class="btn btn-hover-shine btn-outline-primary border-0 btn-sm" href="./account/address/{{ $address->id }}">Details</a>
-                                    </td>
-
-                                    <td class="text-center first-row">
-                                        <form class="d-inline" action="./account/address/delete/{{ $address->id }}" method="post">
-
-                                            @csrf
-                                            @method('POST')
-
-                                            <button class="border-0 btn btn-outline-danger mr-1"
-                                                    type="submit" data-toggle="tooltip" title="Update"
-                                                    data-placement="bottom"
-                                                    onclick="return confirm('Bạn thật sự muốn xóa địa chỉ này ?')">
-                                            <span class="btn-icon-wrapper pr-1 opacity-8">
-                                                  <i class="fa fa-times fa-w-20"></i>
-                                            </span>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-
-
-
-                            </tbody>
-
-                        </table>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
@@ -173,47 +112,117 @@
                     </div>
                 </div>
 
+                {{--                <div class="col-lg-12">--}}
+                {{--                    <div class="row">--}}
+                {{--                        <div class="col-md-12">--}}
+                {{--                            <div class="main-card mb-3 card">--}}
+                {{--                                <div class="card-body">--}}
+                {{--                                    <form method="post" action="admin/enter_coupon" enctype="multipart/form-data">--}}
 
+                {{--                                        @csrf--}}
+
+                {{--                                        <div class="position-relative row form-group">--}}
+                {{--                                            <label for="product_id"--}}
+                {{--                                                   class="col-md-3 text-md-right col-form-label">Product</label>--}}
+                {{--                                            <div class="col-md-9 col-xl-8">--}}
+                {{--                                                <select required name="product_id" id="product_id" class="form-control form-control-sm js_location" data-type="city">--}}
+                {{--                                                    <option value="">-- Product --</option>--}}
+
+                {{--                                                    @foreach($addresses as $address)--}}
+                {{--                                                        <option value={{ $address->id }}>--}}
+                {{--                                                            {{ $address->id }}: {{ $address->city }}--}}
+                {{--                                                        </option>--}}
+                {{--                                                    @endforeach--}}
+
+                {{--                                                </select>--}}
+                {{--                                            </div>--}}
+                {{--                                        </div>--}}
+
+                {{--                                        <div class="position-relative row form-group">--}}
+                {{--                                            <label for="product_id"--}}
+                {{--                                                   class="col-md-3 text-md-right col-form-label">Product</label>--}}
+                {{--                                            <div class="col-md-9 col-xl-8">--}}
+                {{--                                                <select required name="product_detail_id" id="product_detail_id" class="form-control form-control-sm js_location" data-type="district">--}}
+                {{--                                                    <option value="">-- Product Detail id --</option>--}}
+
+                {{--                                                </select>--}}
+                {{--                                            </div>--}}
+                {{--                                        </div>--}}
+
+
+                {{--                                    </form>--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- My Order -->
+    <section class="shopping-cart spad">
+        <div class="container">
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="cart-table">
 
                         <table>
+                            <thead>
+                                <tr>
+                                    <th>Địa chỉ</th>
+                                    <th>Chi tiết</th>
+                                    <th>Xóa</th>
 
-                            <div class="app-main__inner">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="main-card mb-3 card">
-                                            <div class="card-body">
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                                <form>
-                                                    <select name="province" id="province">
-                                                        <option value="">-- Chọn tỉnh --</option>
-                                                    </select>
+                            @foreach($addresses as $address)
+                                <tr>
+                                    <td class="first-row">
+                                        {{ $address->address }}, {{ $address->village }}, {{ $address->town }}, {{ $address->city }}
+                                    </td>
 
-                                                    <select name="district" id="district">
-                                                        <option value="">-- Chọn huyện --</option>
-                                                    </select>
+                                    <td class="text-center first-row">
+                                        <a class="btn btn-hover-shine btn-outline-primary border-0 btn-sm" href="./account/address/{{ $address->id }}">Details</a>
+                                    </td>
 
-                                                    <select name="ward" id="ward">
-                                                        <option value="">-- Chọn xã --</option>
-                                                    </select>
-                                                </form>
+                                    <td class="text-center first-row">
+                                        <form class="d-inline" action="./account/address/delete/{{ $address->id }}" method="post">
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                            @csrf
+                                            @method('POST')
+
+                                            <button class="border-0 btn btn-outline-danger mr-1"
+                                                    type="submit" data-toggle="tooltip" title="Update"
+                                                    data-placement="bottom"
+                                                    onclick="return confirm('Bạn thật sự muốn xóa địa chỉ này ?')">
+                                            <span class="btn-icon-wrapper pr-1 opacity-8">
+                                                  <i class="fa fa-times fa-w-20"></i>
+                                            </span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+
+
+                            </tbody>
 
                         </table>
 
 
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
+
+
+
 
 @endsection
 
@@ -223,51 +232,6 @@
     }
 </script>
 
-{{--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--}}
-{{--<script>--}}
-{{--    $(document).ready(function() {--}}
-{{--        // Tạo sự kiện khi chọn Tỉnh--}}
-{{--        $('#province').on('change', function() {--}}
-{{--            var provinceId = $(this).val();--}}
 
-{{--            // Gọi Ajax để lấy danh sách Huyện của Tỉnh--}}
-{{--            $.ajax({--}}
-{{--                url: '{{ route('districts.index') }}',--}}
-{{--                type: 'GET',--}}
-{{--                dataType: 'json',--}}
-{{--                data: {province_id: provinceId},--}}
-{{--                success: function(response) {--}}
-{{--                    // Xóa danh sách huyện cũ (nếu có)--}}
-{{--                    $('#district').empty();--}}
-{{--                    // Hiển thị tất cả các lựa chọn huyện mới--}}
-{{--                    $('#district').append('<option value="">-- Chọn huyện --</option>');--}}
-{{--                    $.each(response, function(key, value) {--}}
-{{--                        $('#district').append('<option value="' + key + '">' + value + '</option>');--}}
-{{--                    })--}}
-{{--                }--}}
-{{--            })--}}
-{{--        });--}}
 
-{{--        // Tạo sự kiện khi chọn Huyện--}}
-{{--        $('#district').on('change', function() {--}}
-{{--            var districtId = $(this).val();--}}
 
-{{--            // Gọi Ajax để lấy danh sách Xã của Huyện--}}
-{{--            $.ajax({--}}
-{{--                url: '{{ route('wards.index') }}',--}}
-{{--                type: 'GET',--}}
-{{--                dataType: 'json',--}}
-{{--                data: {district_id: districtId},--}}
-{{--                success: function(response) {--}}
-{{--                    // Xóa danh sách xã cũ (nếu có)--}}
-{{--                    $('#ward').empty();--}}
-{{--                    // Hiển thị tất cả các lựa chọn xã mới--}}
-{{--                    $('#ward').append('<option value="">-- Chọn xã --</option>');--}}
-{{--                    $.each(response, function(key, value) {--}}
-{{--                        $('#ward').append('<option value="' + key + '">' + value + '</option>');--}}
-{{--                    })--}}
-{{--                }--}}
-{{--            })--}}
-{{--        });--}}
-{{--    });--}}
-{{--</script>--}}

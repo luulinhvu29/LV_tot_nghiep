@@ -66,15 +66,6 @@
                                         </div>
 
                                         <div class="position-relative row form-group">
-                                            <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                                Company Name
-                                            </label>
-                                            <div class="col-md-6 col-form-label">
-                                                <p>{{ $user->company_name }}</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="position-relative row form-group">
                                             <label for="country"
                                                    class="col-md-3 text-md-right col-form-label">Country</label>
                                             <div class="col-md-6 col-form-label">
@@ -82,35 +73,18 @@
                                             </div>
                                         </div>
 
-                                        <div class="position-relative row form-group">
-                                            <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                                Street Address</label>
-                                            <div class="col-md-6 text-center col-form-label">
-                                                <a class="site-btn register-btn" href="./account/address">Sửa địa chỉ</a>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="position-relative row form-group">
-                                            <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                                Postcode Zip</label>
-                                            <div class="col-md-6 col-form-label">
-                                                <p>{{ $user->postcode_zip }}</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="position-relative row form-group">
-                                            <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                                Town City</label>
-                                            <div class="col-md-6 col-form-label">
-                                                <p>{{ $user->town_city }}</p>
-                                            </div>
-                                        </div>
 
                                         <div class="position-relative row form-group">
                                             <label for="phone" class="col-md-3 text-md-right col-form-label">Phone</label>
                                             <div class="col-md-6 col-form-label">
                                                 <p>{{ $user->phone }}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="position-relative row form-group">
+                                            <div class="col-md-6 text-center col-form-label">
+                                                <a class="site-btn register-btn" href="./account/address">Quản lý địa chỉ</a>
+
                                             </div>
                                         </div>
 

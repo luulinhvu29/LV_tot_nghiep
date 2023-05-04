@@ -137,7 +137,11 @@
                                         @for($i = 0; $i < count($product->productDetails); $i++)
                                             @if($product->productDetails[$i]->size == 'XS' )
                                                 <ul class="pd-tags">
-                                                    <li><span>Số lượng</span>: {{ $product->productDetails[$i]->qty }}</li>
+                                                    @if($cart)
+                                                        <li id="max" value="{{ $product->productDetails[$i]->qty - $cart->qty }}"><span>Số lượng:</span> {{ $product->productDetails[$i]->qty }} </li>
+                                                    @else
+                                                        <li id="max" value="{{ $product->productDetails[$i]->qty }}"><span>Số lượng:</span> {{ $product->productDetails[$i]->qty}} </li>
+                                                    @endif
                                                 </ul>
 
                                             @endif

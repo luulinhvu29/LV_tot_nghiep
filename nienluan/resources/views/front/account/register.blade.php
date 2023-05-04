@@ -59,7 +59,7 @@
 
                             <div class="group-input">
                                 <label for="phone">Số điện thoại<span style="color: red">*</span></label>
-                                <input type="text" id="phone" name="phone" required>
+                                <input type="text" id="phone" name="phone">
                             </div>
 
                             <div class="group-input">

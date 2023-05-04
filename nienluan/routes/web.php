@@ -22,6 +22,8 @@ Route::get('/contact', [\App\Http\Controllers\Front\HomeController::class,'conta
 
 Route::get('/AddCart2/{id}', [Front\CartController::class, 'AddCart2']);
 
+Route::match(['get','post'],'/botman',[\App\Http\Controllers\Api\BotManController::class, 'handle']);
+
 Route::prefix('shop')->group(function(){
     Route::get('/product/{id}', [Front\ShopController::class, 'show']);
     Route::get('/product/{id}/1', [Front\ShopController::class, 'show1']);
@@ -29,7 +31,7 @@ Route::prefix('shop')->group(function(){
     Route::get('/product/{id}/3', [Front\ShopController::class, 'show3']);
     Route::get('/product/{id}/4', [Front\ShopController::class, 'show4']);
 
-    Route::post('/product/{id}', [Front\ShopController::class, 'postComment']);
+    Route::post('/product/{id}', [Front\ShopController::class, 'postComment'])->middleware('CheckMemberLogin');
 
     Route::get('/',[Front\ShopController::class, 'index']);
 
@@ -65,9 +67,14 @@ Route::prefix('checkout')->middleware('CheckMemberLogin')->group(function (){
 
 });
 
+//Dang nhap bang google account
+Route::get('google', [\App\Http\Controllers\API\GoogleController::class, 'redirectToGoogle']);
+Route::get('google/callback', [\App\Http\Controllers\API\GoogleController::class, 'handleGoogleCallback']);
+
 Route::prefix('account')->group(function (){
     Route::get('/login',[\App\Http\Controllers\Front\AccountController::class , 'login']);
     Route::post('login', [\App\Http\Controllers\Front\AccountController::class, 'checkLogin']);
+
 
     Route::get('/logout',[\App\Http\Controllers\Front\AccountController::class , 'logout']);
 
@@ -79,6 +86,9 @@ Route::prefix('account')->group(function (){
     Route::prefix('my-order')->middleware('CheckMemberLogin')->group(function (){
        Route::get('/', [\App\Http\Controllers\Front\AccountController::class , 'myOrderIndex']);
        Route::get('/{id}', [\App\Http\Controllers\Front\AccountController::class , 'myOrderShow']);
+       Route::get('comment/{id}', [\App\Http\Controllers\Front\AccountController::class , 'myOrderComment']);
+
+        Route::post('postOrderComment/{id}', [\App\Http\Controllers\Front\AccountController::class , 'postOrderComment']);
 
 
        Route::post('/cancel/{id}', [\App\Http\Controllers\Front\AccountController::class , 'myOrderCancel']);
@@ -117,7 +127,12 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
     Route::resource('product/{product_id}/detail', App\Http\Controllers\Admin\ProductDetailController::class);
     Route::resource('order', App\Http\Controllers\Admin\OrderController::class);
 
+    Route::post('order/hide/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'hide']);
+
     Route::resource('enter_coupon', \App\Http\Controllers\Admin\EnterCouponController::class);
+
+    Route::get('statistics', [\App\Http\Controllers\Admin\StatisticController::class, 'index']);
+    Route::post('statistics/filter_day', [\App\Http\Controllers\Admin\StatisticController::class, 'filter_day']);
 
     Route::prefix('login')->group(function (){
         Route::get('', [\App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');
@@ -126,4 +141,23 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
 
     Route::get('logout', [\App\Http\Controllers\Admin\HomeController::class, 'logout']);
 });
+
+Route::prefix('partner')->middleware('CheckPartnerLogin')->group(function () {
+    Route::redirect('', 'partner/index');
+
+    Route::get('index', [\App\Http\Controllers\Partner\HomeController::class, 'index']);
+    Route::get('shipping', [\App\Http\Controllers\Partner\HomeController::class, 'shipping_index']);
+    Route::get('finish', [\App\Http\Controllers\Partner\HomeController::class, 'finish_index']);
+
+    Route::post('shipping/{id}', [\App\Http\Controllers\Partner\HomeController::class, 'shipping']);
+    Route::post('refuse/{id}', [\App\Http\Controllers\Partner\HomeController::class, 'refuse']);
+    Route::post('finish/{id}', [\App\Http\Controllers\Partner\HomeController::class, 'finish']);
+
+    Route::prefix('login')->group(function (){
+        Route::get('', [\App\Http\Controllers\Partner\HomeController::class, 'getLogin'])->withoutMiddleware('CheckPartnerLogin');
+        Route::post('', [\App\Http\Controllers\Partner\HomeController::class, 'postLogin'])->withoutMiddleware('CheckPartnerLogin');
+    });
+    Route::get('logout', [\App\Http\Controllers\Partner\HomeController::class, 'logout']);
+});
+
 
