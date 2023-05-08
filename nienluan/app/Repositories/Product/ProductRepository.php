@@ -33,7 +33,10 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
         $search = $request->search ?? '';
 
-        $products = $this->model->where('name', 'like', '%' . $search . '%')->orWhere('tag', 'like', '%' . $search . '%');
+        $products = $this->model->where(function($query) use($search){
+            $query->where('name', 'like', '%' . $search . '%')
+                ->orWhere('tag', 'like', '%' . $search . '%');
+        });
 
         $products = $this->filter($products, $request);
 
@@ -101,14 +104,6 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         $priceMax = str_replace('$','',$priceMax);
 
         $products = ($priceMin != null && $priceMax != null) ? $products->whereBetween('price', [$priceMin, $priceMax]) : $products;
-
-        //Color
-        $color = $request->color;
-        $products = $color != null
-            ? $products->whereHas('productDetails', function ($query) use ($color) {
-                return $query->where('color', $color)->where('qty','>',0);
-            })
-            : $products;
 
         //Size
         $size = $request->size;

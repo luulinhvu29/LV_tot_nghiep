@@ -99,6 +99,10 @@ Route::prefix('account')->group(function (){
         Route::get('/', [\App\Http\Controllers\Front\AccountController::class , 'myAddressIndex']);
         Route::get('/{id}', [\App\Http\Controllers\Front\AccountController::class , 'myAddressShow']);
 
+        Route::post('get-districts', [\App\Http\Controllers\Front\AccountController::class, 'getDistricts']);
+        Route::post('get-wards', [\App\Http\Controllers\Front\AccountController::class, 'getWards']);
+
+
         Route::post('/', [\App\Http\Controllers\Front\AccountController::class , 'postAddress']);
 
         Route::post('/{id}', [\App\Http\Controllers\Front\AccountController::class , 'myAddressUpdate']);

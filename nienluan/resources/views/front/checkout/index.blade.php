@@ -54,7 +54,7 @@
 
                                         @foreach($addresses as $address)
                                             <option value={{ $address->id ? $address->id : '' }}>
-                                                {{ $address->address }}, {{ $address->village }}, {{ $address->town }}, {{ $address->city }}
+                                                {{ $address->address }}, {{ $address->ward->name }}, {{ $address->district->name}}, {{ $address->city->name }}
                                             </option>
                                         @endforeach
 

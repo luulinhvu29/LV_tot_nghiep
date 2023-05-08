@@ -16,4 +16,18 @@ class Address extends Model
     public function user(){
         return $this->belongsTo(User::class,'user_id','id');
     }
+
+    public function city(){
+        return $this->belongsTo(Cities::class,'city_id','id');
+    }
+
+    public function district(){
+        return $this->belongsTo(Districts::class,'district_id','id');
+    }
+
+    public function ward(){
+        return $this->belongsTo(Wards::class,'ward_id','id');
+    }
+
+
 }

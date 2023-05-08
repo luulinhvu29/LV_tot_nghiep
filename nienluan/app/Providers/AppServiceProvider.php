@@ -10,6 +10,10 @@ use App\Repositories\Blog\BlogRepository;
 use App\Repositories\Blog\BlogRepositoryInterface;
 use App\Repositories\Brand\BrandRepository;
 use App\Repositories\Brand\BrandRepositoryInterface;
+use App\Repositories\City\CityRepository;
+use App\Repositories\City\CityRepositoryInterface;
+use App\Repositories\District\DistrictRepository;
+use App\Repositories\District\DistrictRepositoryInterface;
 use App\Repositories\EnterCoupon\EnterCouponRepository;
 use App\Repositories\EnterCoupon\EnterCouponRepositoryInterface;
 use App\Repositories\Order\OrderRepository;
@@ -24,6 +28,8 @@ use App\Repositories\ProductComment\ProductCommentRepository;
 use App\Repositories\ProductComment\ProductCommentRepositoryInterface;
 use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
+use App\Repositories\Ward\WardRepository;
+use App\Repositories\Ward\WardRepositoryInterface;
 use App\Services\Address\AddressService;
 use App\Services\Address\AddressServiceInterface;
 use App\Services\Authority\AuthorityService;
@@ -32,6 +38,10 @@ use App\Services\Blog\BlogService;
 use App\Services\Blog\BlogServiceInterface;
 use App\Services\Brand\BrandService;
 use App\Services\Brand\BrandServiceInterface;
+use App\Services\City\CityService;
+use App\Services\City\CityServiceInterface;
+use App\Services\District\DistrictService;
+use App\Services\District\DistrictServiceInterface;
 use App\Services\EnterCoupon\EnterCouponService;
 use App\Services\EnterCoupon\EnterCouponServiceInterface;
 use App\Services\Order\OrderService;
@@ -53,6 +63,8 @@ use App\Services\ProductDetail\ProductDetailService;
 use App\Services\ProductDetail\ProductDetailServiceInterface;
 use App\Services\User\UserService;
 use App\Services\User\UserServiceInterface;
+use App\Services\Ward\WardService;
+use App\Services\Ward\WardServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -185,6 +197,38 @@ class AppServiceProvider extends ServiceProvider
             AddressService::class
         );
 
+        //City
+        $this->app->singleton(
+            CityRepositoryInterface::class,
+            CityRepository::class
+        );
+
+        $this->app->singleton(
+            CityServiceInterface::class,
+            CityService::class
+        );
+
+        //District
+        $this->app->singleton(
+            DistrictRepositoryInterface::class,
+            DistrictRepository::class
+        );
+
+        $this->app->singleton(
+            DistrictServiceInterface::class,
+            DistrictService::class
+        );
+
+        //Ward
+        $this->app->singleton(
+            WardRepositoryInterface::class,
+            WardRepository::class
+        );
+
+        $this->app->singleton(
+            WardServiceInterface::class,
+            WardService::class
+        );
 
         //User
         $this->app->singleton(

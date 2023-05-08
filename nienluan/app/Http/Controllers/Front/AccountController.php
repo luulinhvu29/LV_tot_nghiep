@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cities;
+use App\Models\Districts;
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\ProductDetail;
 use App\Models\User;
+use App\Models\Wards;
 use App\Services\Address\AddressServiceInterface;
 use App\Services\Order\OrderServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
@@ -314,23 +319,20 @@ class AccountController extends Controller
 
     public function myAddressIndex(){
         $addresses = $this->addressService->getAddressByUserId(Auth::id());
+        $cities = Cities::all();
 
-        return view('front.account.address.index', compact('addresses'));
 
-    }
 
-    public function myAddressCreate(){
+        return view('front.account.address.index', compact('addresses','cities'));
 
-        return view('front.account.address.create');
     }
 
     public function myAddressShow($id){
         $address = $this->addressService->find($id);
+        $cities = Cities::all();
 
-        return view('front.account.address.show', compact('address'));
+        return view('front.account.address.show', compact('address','cities'));
     }
-
-
 
     public function postAddress(Request $request){
         $data = $request->all();
@@ -355,6 +357,20 @@ class AccountController extends Controller
         $this->addressService->update($data, $id);
 
         return redirect('account/address');
+    }
+
+    public function getDistricts(Request $request)
+    {
+        $data['districts'] = Districts::where('city_id',$request->country_id)->get();
+
+        return response()->json($data);
+    }
+
+    public function getWards(Request $request)
+    {
+        $data['wards'] = Wards::where('district_id',$request->state_id)->get();
+
+        return response()->json($data);
     }
 
 

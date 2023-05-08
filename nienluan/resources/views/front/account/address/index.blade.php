@@ -42,28 +42,31 @@
                                                     @csrf
 
                                                     <div class="position-relative row form-group">
-                                                        <label for="city" class="col-md-3 text-md-right col-form-label">Tỉnh / Thành phố</label>
+                                                        <label for="city_id" class="col-md-3 text-md-right col-form-label">Tỉnh / Thành phố</label>
                                                         <div class="col-md-9 col-xl-8">
-                                                            <input required name="city" id="city" placeholder="City" type="text"
-                                                                   class="form-control" >
+                                                            <select required name="city_id" id="country-dd" class="form-control">
+                                                                <option value="">Chọn tỉnh / thành phố</option>
+                                                                @foreach($cities as $data)
+                                                                    <option value="{{$data->id}}">{{$data->name}}</option>
+                                                                @endforeach
+
+                                                            </select>
                                                         </div>
                                                     </div>
 
                                                     <div class="position-relative row form-group">
-                                                        <label for="town"
+                                                        <label for="district_id"
                                                                class="col-md-3 text-md-right col-form-label">Quận / Huyện</label>
                                                         <div class="col-md-9 col-xl-8">
-                                                            <input required name="town" id="town" placeholder="Town" type="text"
-                                                                   class="form-control" >
+                                                            <select id="state-dd" class="form-control" name="district_id"></select>
                                                         </div>
                                                     </div>
 
                                                     <div class="position-relative row form-group">
-                                                        <label for="village"
+                                                        <label for="ward_id"
                                                                class="col-md-3 text-md-right col-form-label">Phường / Xã</label>
                                                         <div class="col-md-9 col-xl-8">
-                                                            <input required name="village" id="village" placeholder="Village" type="text"
-                                                                   class="form-control" >
+                                                            <select id="city-dd" class="form-control" name="ward_id"></select>
                                                         </div>
                                                     </div>
 
@@ -112,51 +115,6 @@
                     </div>
                 </div>
 
-                {{--                <div class="col-lg-12">--}}
-                {{--                    <div class="row">--}}
-                {{--                        <div class="col-md-12">--}}
-                {{--                            <div class="main-card mb-3 card">--}}
-                {{--                                <div class="card-body">--}}
-                {{--                                    <form method="post" action="admin/enter_coupon" enctype="multipart/form-data">--}}
-
-                {{--                                        @csrf--}}
-
-                {{--                                        <div class="position-relative row form-group">--}}
-                {{--                                            <label for="product_id"--}}
-                {{--                                                   class="col-md-3 text-md-right col-form-label">Product</label>--}}
-                {{--                                            <div class="col-md-9 col-xl-8">--}}
-                {{--                                                <select required name="product_id" id="product_id" class="form-control form-control-sm js_location" data-type="city">--}}
-                {{--                                                    <option value="">-- Product --</option>--}}
-
-                {{--                                                    @foreach($addresses as $address)--}}
-                {{--                                                        <option value={{ $address->id }}>--}}
-                {{--                                                            {{ $address->id }}: {{ $address->city }}--}}
-                {{--                                                        </option>--}}
-                {{--                                                    @endforeach--}}
-
-                {{--                                                </select>--}}
-                {{--                                            </div>--}}
-                {{--                                        </div>--}}
-
-                {{--                                        <div class="position-relative row form-group">--}}
-                {{--                                            <label for="product_id"--}}
-                {{--                                                   class="col-md-3 text-md-right col-form-label">Product</label>--}}
-                {{--                                            <div class="col-md-9 col-xl-8">--}}
-                {{--                                                <select required name="product_detail_id" id="product_detail_id" class="form-control form-control-sm js_location" data-type="district">--}}
-                {{--                                                    <option value="">-- Product Detail id --</option>--}}
-
-                {{--                                                </select>--}}
-                {{--                                            </div>--}}
-                {{--                                        </div>--}}
-
-
-                {{--                                    </form>--}}
-                {{--                                </div>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
-
             </div>
         </div>
     </section>
@@ -182,7 +140,7 @@
                             @foreach($addresses as $address)
                                 <tr>
                                     <td class="first-row">
-                                        {{ $address->address }}, {{ $address->village }}, {{ $address->town }}, {{ $address->city }}
+                                        {{ $address->address }}, {{ $address->ward->name }}, {{ $address->district->name}}, {{ $address->city->name }}
                                     </td>
 
                                     <td class="text-center first-row">
@@ -221,6 +179,68 @@
         </div>
     </section>
 
+{{--    <div class="container mt-4">--}}
+{{--        <div class="row justify-content-center">--}}
+{{--            <div class="col-md-12">--}}
+{{--                <h2>Laravel 9 Country State City Dropdown Using AJAX</h2>--}}
+{{--                <form>--}}
+{{--                    <div class="form-group mb-3">--}}
+{{--                        <select id="country-dd" class="form-control">--}}
+{{--                            <option value="">Select Country</option>--}}
+{{--                            @foreach($cities as $data)--}}
+{{--                                <option value="{{$data->id}}">{{$data->name}}</option>--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+{{--                    <div class="form-group mb-3">--}}
+{{--                        <select id="state-dd" class="form-control"></select>--}}
+{{--                    </div>--}}
+{{--                    <div class="form-group mb-3">--}}
+{{--                        <select id="city-dd" class="form-control"></select>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#country-dd').change(function(event) {
+                var idCountry = this.value;
+                $('#state-dd').html('');
+
+                $.ajax({
+                    url: "/account/address/get-districts",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {country_id: idCountry,_token:"{{ csrf_token() }}"},
+                    success:function(response){
+                        $('#state-dd').html('<option value="">Select State</option>');
+                        $.each(response.districts,function(index, val){
+                            $('#state-dd').append('<option value="'+val.id+'"> '+val.name+' </option>')
+                        });
+                        $('#city-dd').html('<option value="">Select District</option>');
+                    }
+                })
+            });
+            $('#state-dd').change(function(event) {
+                var idState = this.value;
+                $('#city-dd').html('');
+                $.ajax({
+                    url: "/account/address/get-wards",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {state_id: idState,_token:"{{ csrf_token() }}"},
+                    success:function(response){
+                        $('#city-dd').html('<option value="">Select State</option>');
+                        $.each(response.wards,function(index, val){
+                            $('#city-dd').append('<option value="'+val.id+'"> '+val.name+' </option>')
+                        });
+                    }
+                })
+            });
+        });
+    </script>
 
 
 
@@ -231,6 +251,8 @@
         document.getElementById("CreateForm").reset();
     }
 </script>
+
+
 
 
 

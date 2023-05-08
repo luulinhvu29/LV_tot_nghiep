@@ -49,7 +49,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <label for="add">Street Address</label>
-                                <input disabled type="text" id="add" class="street-first" value="{{ $address->address }}, {{ $address->village }}, {{ $address->town }}, {{ $address->city }}">
+                                <input disabled type="text" id="add" class="street-first" value="{{ $address->address }}, {{ $address->ward->name }}, {{ $address->district->name}}, {{ $address->city->name }}">
                             </div>
 
                             <div class="col-lg-6">

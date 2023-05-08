@@ -32,28 +32,35 @@
                             @csrf
 
                             <div class="position-relative row form-group">
-                                <label for="city" class="col-md-3 text-md-right col-form-label">Tỉnh / Thành phố</label>
+                                <label for="city_id" class="col-md-3 text-md-right col-form-label">Tỉnh / Thành phố</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="city" id="city" placeholder="City" type="text"
-                                           class="form-control" value="{{ $address->city }}">
+                                    <select required name="city_id" id="country-dd" class="form-control">
+                                        <option value="">{{ $address->city->name }}</option>
+                                        @foreach($cities as $data)
+                                            <option value="{{$data->id}}">{{$data->name}}</option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="position-relative row form-group">
-                                <label for="town"
+                                <label for="district_id"
                                        class="col-md-3 text-md-right col-form-label">Quận / Huyện</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="town" id="town" placeholder="Town" type="text"
-                                           class="form-control" value="{{ $address->town }}">
+                                    <select id="state-dd" class="form-control" name="district_id">
+                                        <option value="">{{ $address->district->name }}</option>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="position-relative row form-group">
-                                <label for="village"
+                                <label for="ward_id"
                                        class="col-md-3 text-md-right col-form-label">Phường / Xã</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="village" id="village" placeholder="Village" type="text"
-                                           class="form-control" value="{{ $address->village }}">
+                                    <select id="city-dd" class="form-control" name="ward_id">
+                                        <option value="">{{ $address->ward->name }}</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -92,5 +99,45 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#country-dd').change(function(event) {
+                var idCountry = this.value;
+                $('#state-dd').html('');
+
+                $.ajax({
+                    url: "/account/address/get-districts",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {country_id: idCountry,_token:"{{ csrf_token() }}"},
+                    success:function(response){
+                        $('#state-dd').html('<option value="">Select State</option>');
+                        $.each(response.districts,function(index, val){
+                            $('#state-dd').append('<option value="'+val.id+'"> '+val.name+' </option>')
+                        });
+                        $('#city-dd').html('<option value="">Select District</option>');
+                    }
+                })
+            });
+            $('#state-dd').change(function(event) {
+                var idState = this.value;
+                $('#city-dd').html('');
+                $.ajax({
+                    url: "/account/address/get-wards",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {state_id: idState,_token:"{{ csrf_token() }}"},
+                    success:function(response){
+                        $('#city-dd').html('<option value="">Select State</option>');
+                        $.each(response.wards,function(index, val){
+                            $('#city-dd').append('<option value="'+val.id+'"> '+val.name+' </option>')
+                        });
+                    }
+                })
+            });
+        });
+    </script>
 
 @endsection
