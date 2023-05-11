@@ -65,20 +65,42 @@
                             <div class="group-input">
                                 <label for="street_address">Địa chỉ</label>
                                 <div class="container">
-                                    <div class="col-lg-8">
-                                        Tỉnh / Thành phố: <input type="text" id="city" name="city">
+                                    <div class="position-relative row form-group">
+                                        <label for="city_id" class="col-md-3 text-md-right col-form-label">Tỉnh / Thành phố</label>
+                                        <div class="col-md-9 col-xl-8">
+                                            <select required name="city_id" id="country-dd" class="form-control">
+                                                <option value="">Chọn tỉnh / thành phố</option>
+                                                @foreach($cities as $data)
+                                                    <option value="{{$data->id}}">{{$data->name}}</option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
                                     </div>
 
-                                    <div class="col-lg-8">
-                                        Quận / Huyện: <input type="text" id="town" name="town">
+                                    <div class="position-relative row form-group">
+                                        <label for="district_id"
+                                               class="col-md-3 text-md-right col-form-label">Quận / Huyện</label>
+                                        <div class="col-md-9 col-xl-8">
+                                            <select id="state-dd" class="form-control" name="district_id"></select>
+                                        </div>
                                     </div>
 
-                                    <div class="col-lg-8">
-                                        Phường / Xã: <input type="text" id="village" name="village">
+                                    <div class="position-relative row form-group">
+                                        <label for="ward_id"
+                                               class="col-md-3 text-md-right col-form-label">Phường / Xã</label>
+                                        <div class="col-md-9 col-xl-8">
+                                            <select id="city-dd" class="form-control" name="ward_id"></select>
+                                        </div>
                                     </div>
 
-                                    <div class="col-lg-8">
-                                        Đường, số nhà: <input type="text" id="address" name="address">
+                                    <div class="position-relative row form-group">
+                                        <label for="address"
+                                               class="col-md-3 text-md-right col-form-label">Tên đường, số nhà</label>
+                                        <div class="col-md-9 col-xl-8">
+                                            <input required name="address" id="address" placeholder="Address" type="text"
+                                                   class="form-control" >
+                                        </div>
                                     </div>
                                 </div>
                             </div>

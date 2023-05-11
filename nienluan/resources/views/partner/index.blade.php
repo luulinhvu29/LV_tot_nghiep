@@ -93,8 +93,8 @@
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        {{ \App\Models\Address::find($order->address)->address }}, {{ \App\Models\Address::find($order->address)->village }},
-                                        {{ \App\Models\Address::find($order->address)->town }}, {{ \App\Models\Address::find($order->address)->city }}
+                                        {{ \App\Models\Address::find($order->address)->address }}, {{ \App\Models\Address::find($order->address)->ward->name }},
+                                        {{ \App\Models\Address::find($order->address)->district->name }}, {{ \App\Models\Address::find($order->address)->city->name }}
                                     </td>
                                     <td class="text-center">{{ $order->phone }}</td>
                                     <td class="text-center">${{ array_sum(array_column($order->orderDetails->toArray(), 'total')) }}</td>

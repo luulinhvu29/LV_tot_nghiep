@@ -86,16 +86,6 @@
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group">
-                                <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                    Company Name
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="company_name" id="company_name"
-                                           placeholder="Company Name" type="text" class="form-control"
-                                           value="{{ $user->company_name }}">
-                                </div>
-                            </div>
 
                             <div class="position-relative row form-group">
                                 <label for="country"
@@ -107,42 +97,10 @@
                             </div>
 
                             <div class="position-relative row form-group">
-                                <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                    Street Address
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="street_address" id="street_address"
-                                           placeholder="Street Address" type="text" class="form-control"
-                                           value="{{ $user->street_address }}">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                    Postcode Zip
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="postcode_zip" id="postcode_zip"
-                                           placeholder="Postcode Zip" type="text" class="form-control"
-                                           value="{{ $user->postcode_zip }}">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                    Town City
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="town_city" id="town_city" placeholder="Town City"
-                                           type="text" class="form-control" value="{{ $user->town_city }}">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
                                 <label for="phone"
                                        class="col-md-3 text-md-right col-form-label">Phone</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="phone" id="phone" placeholder="Phone" type="tel"
+                                    <input name="phone" id="phone" placeholder="Phone" type="tel"
                                            class="form-control" value="{{ $user->phone }}">
                                 </div>
                             </div>
@@ -164,82 +122,53 @@
                                 </div>
                             </div>
 
-
+                            @if($user->level == \App\Utilities\Constant::user_level_admin)
                                 <div class="position-relative row form-group">
-{{--                                <label for="authority"--}}
-{{--                                       class="col-md-3 text-md-right col-form-label">Authority</label>--}}
-{{--                                <div class="payment-check">--}}
-{{--                                    <div class="col-md-5 col-xl-2">--}}
-{{--                                        <div class="pc-item">--}}
-{{--                                            <label for="pc-check">--}}
-{{--                                                User--}}
-{{--                                                <input type="checkbox" name="authority_user" value="authority_user" id="authority_user" @if($user->authority[0]->user == true) checked @endif >--}}
-{{--                                                <span class="checkmark"></span>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                    <label for="authority"
+                                           class="col-md-3 text-md-right col-form-label">Authority</label>
+                                    <div class="position-relative form-check">
+                                        <div class="col-md-5 col-xl-2">
+                                            <input class="form-check-input" type="checkbox" name="authority_user" id="authority_user" @if($user->authority[0]->user == true) checked @endif >
+                                            <label for="exampleCheck" class="form-check-label">User</label>
+                                        </div>
+                                    </div>
 
-{{--                                <div class="payment-check">--}}
-{{--                                    <div class="col-md-5 col-xl-2">--}}
-{{--                                        <div class="pc-item">--}}
-{{--                                            <label for="pc-check">--}}
-{{--                                                Product--}}
-{{--                                                <input type="checkbox" name="authority_pro" value="" id="pc-check" @if($user->authority[0]->pro == true) checked @endif >--}}
-{{--                                                <span class="checkmark"></span>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                    <div class="position-relative form-check">
+                                        <div class="col-md-5 col-xl-2">
+                                            <input class="form-check-input" type="checkbox" name="authority_pro" id="authority_pro" @if($user->authority[0]->pro == true) checked @endif >
+                                            <label for="exampleCheck" class="form-check-label">Product</label>
+                                        </div>
+                                    </div>
 
-{{--                                <div class="payment-check">--}}
-{{--                                    <div class="col-md-5 col-xl-2">--}}
-{{--                                        <div class="pc-item">--}}
-{{--                                            <label for="pc-check">--}}
-{{--                                                Category--}}
-{{--                                                <input type="checkbox" name="authority_cate" value="" id="pc-check" @if($user->authority[0]->cate == true) checked @endif >--}}
-{{--                                                <span class="checkmark"></span>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                    <div class="position-relative form-check">
+                                        <div class="col-md-5 col-xl-2">
+                                            <input class="form-check-input" type="checkbox" name="authority_order" id="authority_order" @if($user->authority[0]->order == true) checked @endif >
+                                            <label for="exampleCheck" class="form-check-label">Order</label>
+                                        </div>
+                                    </div>
 
-{{--                                <div class="payment-check">--}}
-{{--                                    <div class="col-md-5 col-xl-2">--}}
-{{--                                        <div class="pc-item">--}}
-{{--                                            <label for="pc-check">--}}
-{{--                                                Brand--}}
-{{--                                                <input type="checkbox" name="authority_brand" value="" id="pc-check" @if($user->authority[0]->brand == true) checked @endif >--}}
-{{--                                                <span class="checkmark"></span>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                    <div class="position-relative form-check">
+                                        <div class="col-md-5 col-xl-2">
+                                            <input class="form-check-input" type="checkbox" name="authority_cate" id="authority_cate" @if($user->authority[0]->cate == true) checked @endif >
+                                            <label for="exampleCheck" class="form-check-label">Category</label>
+                                        </div>
+                                    </div>
 
-{{--                                <div class="payment-check">--}}
-{{--                                    <div class="col-md-5 col-xl-2">--}}
-{{--                                        <div class="pc-item">--}}
-{{--                                            <label for="pc-check">--}}
-{{--                                                Order--}}
-{{--                                                <input type="checkbox" name="authority_order" value="" id="pc-check" @if($user->authority[0]->order == true) checked @endif >--}}
-{{--                                                <span class="checkmark"></span>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                    <div class="position-relative form-check">
+                                        <div class="col-md-5 col-xl-2">
+                                            <input class="form-check-input" type="checkbox" name="authority_brand" id="authority_brand" @if($user->authority[0]->brand == true) checked @endif >
+                                            <label for="exampleCheck" class="form-check-label">Brand</label>
+                                        </div>
+                                    </div>
 
-{{--                                <div class="payment-check">--}}
-{{--                                    <div class="col-md-5 col-xl-2">--}}
-{{--                                        <div class="pc-item">--}}
-{{--                                            <label for="pc-check">--}}
-{{--                                                Enter--}}
-{{--                                                <input type="checkbox" name="authority_enter" value="" id="pc-check" @if($user->authority[0]->enter == true) checked @endif >--}}
-{{--                                                <span class="checkmark"></span>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                    <div class="position-relative form-check">
+                                        <div class="col-md-5 col-xl-2">
+                                            <input class="form-check-input" type="checkbox" name="authority_enter" id="authority_enter" @if($user->authority[0]->enter == true) checked @endif >
+                                            <label for="exampleCheck" class="form-check-label">Enter</label>
+                                        </div>
+                                    </div>
                             </div>
+                            @endif
 
                             <div class="position-relative row form-group">
                                 <label for="description"

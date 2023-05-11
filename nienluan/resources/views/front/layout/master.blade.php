@@ -196,7 +196,7 @@
                     <ul>
                         <li class="{{ (request()->segment(1) == '') ? 'active' : '' }}"><a href="./">Trang chủ</a> </li>
                         <li class="{{ (request()->segment(1) == 'shop') ? 'active' : '' }}"><a href="./shop">Mua sắm</a> </li>
-                        <li><a href="">Bộ sưu tập</a>
+                        <li><a>Bộ sưu tập</a>
                             <ul class="dropdown">
                                 <li><a href="shop/men">Men's</a></li>
                                 <li><a href="shop/women">Women's</a></li>
@@ -212,7 +212,7 @@
 
 
 
-                        <li><a href="">Pages</a>
+                        <li><a>Khác</a>
                             <ul class="dropdown">
                                 <li><a href="./account/my-order">Đơn hàng của tôi</a></li>
                                 <li><a href="./cart">Giỏ hàng</a></li>
@@ -275,7 +275,7 @@
                     <div class="footer-left">
                         <div class="footer-logo">
                             <a href="">
-                                <img src="front/img/footer-logo.png" height="25" alt="">
+                                <img src="front/img/logo.png" height="25" alt="">
                             </a>
                         </div>
                         <ul>

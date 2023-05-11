@@ -106,8 +106,8 @@
                                 <label for="street_address" class="col-md-3 text-md-right col-form-label">Address</label>
                                 <div class="col-md-9 col-xl-8">
                                     <p>
-                                        {{ \App\Models\Address::find($order->address)->address }}, {{ \App\Models\Address::find($order->address)->village }},
-                                        {{ \App\Models\Address::find($order->address)->town }}, {{ \App\Models\Address::find($order->address)->city }}
+                                        {{ \App\Models\Address::find($order->address)->address }}, {{ \App\Models\Address::find($order->address)->ward->name }},
+                                        {{ \App\Models\Address::find($order->address)->district->name }}, {{ \App\Models\Address::find($order->address)->city->name }}
                                     </p>
                                 </div>
                             </div>

@@ -104,19 +104,19 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $data = $request->all();
+        $data = $request->except('authority_user','authority_pro','authority_cate','authority_brand',
+                                'authority_order','authority_enter');
 
-//        $au = [
-//            'user' => $request->authority_user ? true : false,
-//            'pro' => $request->authority_pro ? true : false,
-//            'cate' => $request->authority_cate ? true : false,
-//            'brand' => $request->authority_brand ? true : false,
-//            'order' => $request->authority_order ? true : false,
-//            'enter' => $request->authority_enter ? true : false,
-//        ];
-//
-//        $pq = $this->authorityService->getAuthorityByUserId($user->id);
+        $au = [
+            'user' => $request->authority_user ? true : false,
+            'pro' => $request->authority_pro ? true : false,
+            'cate' => $request->authority_cate ? true : false,
+            'brand' => $request->authority_brand ? true : false,
+            'order' => $request->authority_order ? true : false,
+            'enter' => $request->authority_enter ? true : false,
+        ];
 
+        $pq = $this->authorityService->getAuthorityByUserId($user->id);
 
 
         //Xu ly mat khau
@@ -147,7 +147,7 @@ class UserController extends Controller
         //Cap nhat du lieu
         $this->userService->update($data, $user->id);
 
-//        $this->authorityService->update($au, $pq[0]->id);
+        $this->authorityService->update($au, $pq[0]->id);
 
 
         return redirect('admin/user/' . $user->id);

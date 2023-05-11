@@ -34,8 +34,8 @@
                                     <div class="modal-body">
                                         <div class="h5 modal-title text-center">
                                             <h4 class="mt-2">
-                                                <div>Welcome back,</div>
-                                                <span>Please sign in to your account below.</span>
+                                                <div>Xin chào</div>
+                                                <span>Hãy đăng nhập để bắt đầu nhé</span>
                                             </h4>
                                         </div>
 
@@ -44,14 +44,14 @@
                                         <div class="form-row">
                                             <div class="col-md-12">
                                                 <div class="position-relative form-group">
-                                                    <input name="email" id="exampleEmail" placeholder="Email here..."
+                                                    <input name="email" id="exampleEmail" placeholder="Email ..."
                                                            type="email" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="position-relative form-group">
                                                     <input name="password" id="examplePassword"
-                                                           placeholder="Password here..." type="password"
+                                                           placeholder="Mật khẩu ..." type="password"
                                                            class="form-control">
                                                 </div>
                                             </div>
@@ -59,19 +59,19 @@
                                         <div class="position-relative form-check">
                                             <input name="remember" id="exampleCheck" type="checkbox"
                                                    class="form-check-input">
-                                            <label for="exampleCheck" class="form-check-label">Keep me logged in</label>
+                                            <label for="exampleCheck" class="form-check-label">Lưu đăng nhập</label>
                                         </div>
 
                                     </div>
                                     <div class="modal-footer clearfix">
                                         <div class="float-right">
-                                            <button type="submit" class="btn btn-primary btn-lg">Login to Dashboard</button>
+                                            <button type="submit" class="btn btn-primary btn-lg">Đăng nhập vào hệ thống</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="text-center text-white opacity-8 mt-3">Copyright © CodeLean 2022</div>
+                        <div class="text-center text-white opacity-8 mt-3">Linh Vu Shop</div>
                     </div>
                 </div>
             </div>

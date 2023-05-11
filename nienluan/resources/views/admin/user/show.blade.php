@@ -100,6 +100,54 @@
                             </div>
                         </div>
 
+                        @if($user->level == \App\Utilities\Constant::user_level_admin)
+                            <div class="position-relative row form-group">
+                                <label for="authority"
+                                       class="col-md-3 text-md-right col-form-label">Authority</label>
+                                <div class="position-relative form-check">
+                                    <div class="col-md-5 col-xl-2">
+                                        <input disabled class="form-check-input" type="checkbox" name="authority_user" id="authority_user" @if($user->authority[0]->user == true) checked @endif >
+                                        <label for="exampleCheck" class="form-check-label">User</label>
+                                    </div>
+                                </div>
+
+                                <div class="position-relative form-check">
+                                    <div class="col-md-5 col-xl-2">
+                                        <input disabled class="form-check-input" type="checkbox" name="authority_pro" id="authority_pro" @if($user->authority[0]->pro == true) checked @endif >
+                                        <label for="exampleCheck" class="form-check-label">Product</label>
+                                    </div>
+                                </div>
+
+                                <div class="position-relative form-check">
+                                    <div class="col-md-5 col-xl-2">
+                                        <input disabled class="form-check-input" type="checkbox" name="authority_order" id="authority_order" @if($user->authority[0]->order == true) checked @endif >
+                                        <label for="exampleCheck" class="form-check-label">Order</label>
+                                    </div>
+                                </div>
+
+                                <div class="position-relative form-check">
+                                    <div class="col-md-5 col-xl-2">
+                                        <input disabled class="form-check-input" type="checkbox" name="authority_cate" id="authority_cate" @if($user->authority[0]->cate == true) checked @endif >
+                                        <label for="exampleCheck" class="form-check-label">Category</label>
+                                    </div>
+                                </div>
+
+                                <div class="position-relative form-check">
+                                    <div class="col-md-5 col-xl-2">
+                                        <input disabled class="form-check-input" type="checkbox" name="authority_brand" id="authority_brand" @if($user->authority[0]->brand == true) checked @endif >
+                                        <label for="exampleCheck" class="form-check-label">Brand</label>
+                                    </div>
+                                </div>
+
+                                <div class="position-relative form-check">
+                                    <div class="col-md-5 col-xl-2">
+                                        <input disabled class="form-check-input" type="checkbox" name="authority_enter" id="authority_enter" @if($user->authority[0]->enter == true) checked @endif >
+                                        <label for="exampleCheck" class="form-check-label">Enter</label>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="position-relative row form-group">
                             <label for="description"
                                    class="col-md-3 text-md-right col-form-label">Description</label>

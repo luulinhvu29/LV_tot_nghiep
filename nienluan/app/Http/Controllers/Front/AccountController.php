@@ -92,7 +92,9 @@ class AccountController extends Controller
     }
 
     public function register(){
-        return view('front.account.register');
+        $cities = Cities::all();
+
+        return view('front.account.register',compact('cities'));
     }
 
     public function postRegister(Request $request){
@@ -132,9 +134,9 @@ class AccountController extends Controller
         };
 
         $add = [
-            'city' =>$request->city,
-            'town' => $request->town,
-            'village' => $request->village,
+            'city_id' =>$request->city_id,
+            'district_id' => $request->district_id,
+            'ward_id' => $request->ward_id,
             'address' => $request->address,
             'user_id' => $i,
         ];
