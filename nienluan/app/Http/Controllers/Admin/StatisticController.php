@@ -27,11 +27,10 @@ class StatisticController extends Controller
     {
         $orders = $this->orderService->all();
 
-       // $product = $this->productService->searchAndPaginate('name', $request->get('search'))->first();
-        //$orderDetails = OrderDetail::where('product_id', $product->id);
-
-
-       //$orders = $this->orderService->searchAndPaginate('product_id',$request->get('search'));
+       if($request->get('search')){
+           $product = $this->productService->searchAndPaginate('name',$request->get('search'))->first();
+           $orders = $this->orderService->searchAndPaginate('product_id', $product->id);
+       }
 
         $orders = $orders->where('status', Constant::order_status_Finish);
 

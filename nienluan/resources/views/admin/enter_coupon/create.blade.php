@@ -14,9 +14,9 @@
                         <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
-                        Enter Coupon
+                        Phiếu nhập
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            Quản lý nhập hàng.
                         </div>
                     </div>
                 </div>
@@ -33,10 +33,10 @@
 
                             <div class="position-relative row form-group">
                                 <label for="product_id"
-                                       class="col-md-3 text-md-right col-form-label">Product</label>
+                                       class="col-md-3 text-md-right col-form-label">Sản phẩm</label>
                                 <div class="col-md-9 col-xl-8">
                                     <select required name="product_id" id="product_id" class="form-control">
-                                        <option value="">-- Product --</option>
+                                        <option value="">-- Sản phẩm --</option>
 
                                         @foreach($products as $product)
                                             <option value={{ $product->id }}>
@@ -50,7 +50,7 @@
 
                             <div class="position-relative row form-group">
                                 <label for="enter_qty"
-                                       class="col-md-3 text-md-right col-form-label">Enter Qty</label>
+                                       class="col-md-3 text-md-right col-form-label">Số lượng nhập</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input required name="enter_qty" id="enter_qty"
                                            placeholder="Enter Qty" type="text" class="form-control" value="">
@@ -59,7 +59,7 @@
 
                             <div class="position-relative row form-group">
                                 <label for="enter_price"
-                                       class="col-md-3 text-md-right col-form-label">Enter Price</label>
+                                       class="col-md-3 text-md-right col-form-label">Giá nhập</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input required name="enter_price" id="enter_price"
                                            placeholder="Enter Price" type="text" class="form-control" value="">
@@ -73,7 +73,7 @@
                                                         <span class="btn-icon-wrapper pr-1 opacity-8">
                                                             <i class="fa fa-times fa-w-20"></i>
                                                         </span>
-                                        <span>Cancel</span>
+                                        <span>Hủy</span>
                                     </a>
 
                                     <button type="submit"
@@ -81,7 +81,7 @@
                                                         <span class="btn-icon-wrapper pr-2 opacity-8">
                                                             <i class="fa fa-download fa-w-20"></i>
                                                         </span>
-                                        <span>Save</span>
+                                        <span>Thêm</span>
                                     </button>
                                 </div>
                             </div>

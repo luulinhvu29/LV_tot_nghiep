@@ -41,9 +41,8 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="contact-title">
-                        <h4>Contact Us</h4>
-                        <p>adadadwadwadwadawdawSDBVSDBVjSDBVkjSBVkS
-                            BDVhkhSBhkBVhkBkzbvhbhz.s.</p>
+                        <h4>Liên hệ với chúng tôi</h4>
+                        <p>Linh Vu Shop luôn tiên phong đi đầu trong các xu hướng thời trang</p>
                     </div>
                     <div class="contact-widget">
                         <div class="cw-item">
@@ -51,8 +50,8 @@
                                 <i class="ti-location-pin"></i>
                             </div>
                             <div class="ci-text">
-                                <span>Address:</span>
-                                <p>9A Nguyen Van Linh - Can Tho</p>
+                                <span>Địa chỉ:</span>
+                                <p>Ba thang Hai - Ninh Kieu - Can Tho</p>
                             </div>
                         </div>
                         <div class="cw-item">
@@ -60,7 +59,7 @@
                                 <i class="ti-mobile"></i>
                             </div>
                             <div class="ci-text">
-                                <span>Phone:</span>
+                                <span>Sđt:</span>
                                 <p>+84 907.104.902</p>
                             </div>
                         </div>
@@ -78,18 +77,19 @@
                 <div class="col-lg-6 offset-lg-1">
                     <div class="contact-form">
                         <div class="leave-comment">
-                            <h4>Leave A Comment</h4>
-                            <p>fiwahiofhoiewhfioaifowe</p>
-                            <form action="#" class="comment-form">
+                            <h4>Để lại phản hồi</h4>
+                            <p></p>
+                            <form action="./postContact" method="post" class="comment-form">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="Your name">
+                                        <input type="text" name="name" placeholder="Your name" value="{{ Auth::user()->name ?? '' }}">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="Your email">
+                                        <input type="text" name="email" placeholder="Your email" value="{{ Auth::user()->email ?? ''}}">
                                     </div>
                                     <div class="col-lg-12">
-                                        <textarea placeholder="Your message"></textarea>
+                                        <textarea name="message" placeholder="Your message"></textarea>
                                         <button type="submit" class="site-btn">Send message</button>
                                     </div>
                                 </div>

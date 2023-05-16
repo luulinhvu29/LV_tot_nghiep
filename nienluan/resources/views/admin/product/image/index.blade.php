@@ -14,10 +14,7 @@
                         <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
-                        Product Images
-                        <div class="page-title-subheading">
-                            View, create, update, delete and manage.
-                        </div>
+                        Quản lý hình ảnh
                     </div>
                 </div>
             </div>
@@ -29,15 +26,15 @@
                     <div class="card-body">
 
                         <div class="position-relative row form-group">
-                            <label for="name" class="col-md-3 text-md-right col-form-label">Product Name</label>
+                            <label for="name" class="col-md-3 text-md-right col-form-label">Tên sản phẩm</label>
                             <div class="col-md-9 col-xl-8">
                                 <input disabled placeholder="Product Name" type="text"
-                                       class="form-control" value="Calvin Klein">
+                                       class="form-control" value="{{ $product->name }}">
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="" class="col-md-3 text-md-right col-form-label">Images</label>
+                            <label for="" class="col-md-3 text-md-right col-form-label">Hình ảnh</label>
                             <div class="col-md-9 col-xl-8">
                                 <ul class="text-nowrap" id="images">
 

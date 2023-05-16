@@ -19,6 +19,7 @@ Route::get('/', [\App\Http\Controllers\Front\HomeController::class,'index']);
 Route::get('/faq', [\App\Http\Controllers\Front\HomeController::class,'faq']);
 Route::get('/blog_dt', [\App\Http\Controllers\Front\HomeController::class,'blog_dt']);
 Route::get('/contact', [\App\Http\Controllers\Front\HomeController::class,'contact']);
+Route::post('/postContact', [\App\Http\Controllers\Front\HomeController::class,'postContact']);
 
 Route::get('/AddCart2/{id}', [Front\CartController::class, 'AddCart2']);
 

@@ -31,11 +31,11 @@
                         <table>
                             <thead>
                             <tr>
-                                <th>Image</th>
-                                <th class="p-name">Product Name</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
+                                <th>Hình ảnh</th>
+                                <th class="p-name">Tên sản phẩm</th>
+                                <th>Đơn giá</th>
+                                <th>Số lượng</th>
+                                <th>Tổng tiền</th>
                                 <th><i onclick="confirm('Are you sure to delete all products in your cart?') === true ? destroyCart() : '' "
                                        style="cursor: pointer" class="ti-close"></i>
                                 </th>
@@ -90,8 +90,8 @@
                         <div class="col-lg-4 offset-lg-4">
                             <div class="proceed-checkout">
                                 <ul>
-                                    <li class="subtotal">Subtotal <span>${{ $total }}</span></li>
-                                    <li class="cart-total">Total <span>${{ $subtotal }}</span></li>
+                                    <li class="subtotal">Tổng phụ <span>${{ $total }}</span></li>
+                                    <li class="cart-total">Tổng cộng<span>${{ $subtotal }}</span></li>
                                 </ul>
                                 <a href="./checkout" class="proceed-btn">Tiến hành đặt hàng</a>
                             </div>
@@ -100,7 +100,7 @@
                 </div>
                 @else
                     <div class="col-lg-12">
-                        <h4>Your cart is empty.</h4>
+                        <h4>Bạn không có sản phẩm nào trong giỏ hàng</h4>
                     </div>
                 @endif
             </div>

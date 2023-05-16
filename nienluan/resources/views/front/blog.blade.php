@@ -37,14 +37,13 @@
                         <div class="blog-catagory">
                             <h4>Categories</h4>
                             <ul>
-                                <li><a href="">Codelean</a> </li>
                                 <li><a href="">Travel</a> </li>
                                 <li><a href="">Picnic</a> </li>
                                 <li><a href="">Model</a> </li>
                             </ul>
                         </div>
                         <div class="recent-post">
-                            <h4>Recent Post</h4>
+                            <h4>Bài viết gần đây</h4>
                             <div class="recent-blog">
                                 <a href="#" class="rb-item">
                                     <div class="rb-pic">

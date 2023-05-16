@@ -13,10 +13,7 @@
                         <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
-                        Order
-                        <div class="page-title-subheading">
-                            View, create, update, delete and manage.
-                        </div>
+                        Thống kê
                     </div>
                 </div>
 
@@ -58,7 +55,7 @@
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
 
-                    <div class="card-header">
+{{--                    <div class="card-header">--}}
 
 {{--                        <form>--}}
 {{--                            <div class="input-group">--}}
@@ -67,19 +64,19 @@
 {{--                                <span class="input-group-append">--}}
 {{--                                                <button type="submit" class="btn btn-primary">--}}
 {{--                                                    <i class="fa fa-search"></i>&nbsp;--}}
-{{--                                                    Search--}}
+{{--                                                    Tìm--}}
 {{--                                                </button>--}}
 {{--                                            </span>--}}
 {{--                            </div>--}}
 {{--                        </form>--}}
 
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
-                    </div>
+{{--                        <div class="btn-actions-pane-right">--}}
+{{--                            <div role="group" class="btn-group-sm btn-group">--}}
+{{--                                <button class="btn btn-focus">This week</button>--}}
+{{--                                <button class="active btn btn-focus">Anytime</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
 
@@ -94,7 +91,7 @@
                                 <th class="text-center">Tổng cộng</th>
                                 <th class="text-center">Ngày đặt</th>
                                 <th class="text-center">Ngày kết thúc</th>
-                                <th class="text-center">Lợi nhuận</th>
+                                <th class="text-center">Doanh thu</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -154,7 +151,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <h1>Tổng lợi nhuận: </h1>
+                                        <h1>Tổng doanh thu: </h1>
                                     </th>
                                     <th>
                                         <h3 style="color: green">${{ $sum }}</h3>

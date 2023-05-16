@@ -35,7 +35,7 @@ class ProductDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($product_id)
+    public function index($product_id, Request $request)
     {
         $product = $this->productService->find($product_id);
 
@@ -55,6 +55,9 @@ class ProductDetailController extends Controller
         }
 
         $productDetails = $product->productDetails;
+        if($request->get('search')){
+            $productDetails = $productDetails->where('size',$request->get('search'));
+        }
 
         return view('admin.product.detail.index', compact('product','productDetails','nk','db'));
     }

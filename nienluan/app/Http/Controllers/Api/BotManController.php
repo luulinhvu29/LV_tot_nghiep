@@ -39,6 +39,13 @@ class BotManController extends Controller
             $botman->hears('{message}', function ($botman, $message) {
                 if (strpos($message, 'tìm') !== false or strpos($message, 'xyz') !== false) {
                     $this->askTypeSearch($botman);
+                }else {
+                    $botman->reply("Bạn vui lòng liên hệ số điện thoại: <br/>
+                        0907104902<br/>
+                        Hoặc email:<br/>
+                        linhvu29112001@gmail.com<br/>
+                        để được hỗ trợ thông tin này", ['parse_mode' => 'HTML']);
+
                 }
             });
         }
@@ -47,10 +54,15 @@ class BotManController extends Controller
     }
 
     public function askName($botman){
-        $botman->ask("Hello! What's your name bro?", function (Answer $answer){
+        $botman->ask("Bạn tên gì?", function (Answer $answer){
            $name = $answer->getText();
 
            $this->say('Nice to meet you '.$name);
+        });
+        $botman->ask("Số điện thoại của bạn?", function (Answer $answer){
+            $phone = $answer->getText();
+
+            $this->say('SĐT: '.$phone);
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cities;
 use App\Services\Address\AddressServiceInterface;
 use App\Services\Order\OrderServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
@@ -51,9 +52,10 @@ class CheckOutController extends Controller
 
         $addresses = $this->addressService->getAddressByUserId(Auth::id());
 
+        $cities = Cities::all();
 
 
-        return view('front.checkout.index', compact('carts', 'total','subtotal','addresses'));
+        return view('front.checkout.index', compact('carts', 'total','subtotal','addresses','cities'));
     }
 
     public function addOrder(Request $request){

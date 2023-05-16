@@ -72,7 +72,7 @@
                                 alt="">
                         </td>
 
-                        @if($order->payment_type == "pay_later" and $order->status != \App\Utilities\Constant::order_status_Shipping)
+                        @if($order->payment_type == "pay_later" and $order->status == \App\Utilities\Constant::order_status_ReceiveOrders)
                             <td class="pl-3" style=" padding-left:15px;">
                                 <span class="d-inline"
                                       style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
@@ -82,7 +82,7 @@
                             </td>
                         @endif
 
-                        @if($order->payment_type == "online_payment" and $order->status != \App\Utilities\Constant::order_status_Shipping)
+                        @if($order->payment_type == "online_payment" and $order->status == \App\Utilities\Constant::order_status_ReceiveOrders)
                             <td class="pl-3" style=" padding-left:15px;">
                                 <span class="d-inline"
                                       style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
@@ -96,7 +96,7 @@
                             </td>
                         @endif
 
-                        @if($order->status != \App\Utilities\Constant::order_status_Shipping)
+                        @if($order->status == \App\Utilities\Constant::order_status_Shipping)
                             <td class="pl-3" style=" padding-left:15px;">
                                 <span class="d-inline"
                                       style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
@@ -183,21 +183,19 @@
                         <b style="color: #00509d; font-size: 18px;">More information</b>
                     </div>
                     <div class="row pl-3 py-2" style="background-color: #fff; padding: 10px 20px;">
-                        <p>You can check the appearance of the product (brand, model, color, quantity,...) before
-                            payment and can refuse to receive the goods if not satisfied. Please do not activate an
-                            electrical-electronic device or try the product.</p>
+                        <p>Quý khách được kiểm tra hình thức bên ngoài của sản phẩm (nhãn hiệu, kiểu dáng, màu sắc, số lượng,...)
+                            trước khi thanh toán và có thể từ chối nhận hàng nếu không hài lòng.
+                            Vui lòng không kích hoạt thiết bị điện-điện tử hoặc dùng thử sản phẩm.</p>
 
-                        <p>If the product shows signs of damage / broken or does not match the information on the
-                            website, please contact the store within 48 hours from the time of receipt for
-                            assistance.</p>
+                        <p>Nếu sản phẩm có dấu hiệu hư hỏng/vỡ hoặc không đúng với thông tin trên website,
+                            quý khách vui lòng liên hệ với cửa hàng trong vòng 48h kể từ thời điểm nhận hàng để được hỗ trợ.</p>
 
-                        <p>Please keep the invoice, product box and warranty card (if any) for return or warranty when
-                            needed.</p>
+                        <p>Quý khách vui lòng giữ lại hóa đơn, hộp sản phẩm và phiếu bảo hành (nếu có) để đổi trả hoặc bảo hành khi cần.</p>
 
-                        <p>You can refer to the Help Center page or contact the store by leaving a message at the
-                            Contact page or mailing here. Hotline 1900 9999 (8:00 - 9:00 both Saturday and Sunday).</p>
+                        <p>Bạn có thể tham khảo trang Trung tâm trợ giúp hoặc liên hệ với cửa hàng bằng cách để lại lời nhắn tại trang Liên hệ hoặc gửi thư tại đây.
+                            Hotline 1900 9999 (8:00 - 20:00 cả Thứ 7 và Chủ Nhật).</p>
 
-                        <b>CodeLean thank you.</b>
+                        <b>Linh Vu Shop xin cảm ơn.</b>
                     </div>
                 </div>
             </div>

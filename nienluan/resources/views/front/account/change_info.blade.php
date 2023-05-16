@@ -32,7 +32,7 @@
 
                             <div class="position-relative row form-group">
                                 <label for="image"
-                                       class="col-md-3 text-md-right col-form-label">Avatar</label>
+                                       class="col-md-3 text-md-right col-form-label">Hình đại diện</label>
                                 <div class="col-md-9 col-xl-8">
                                     <img style="height: 200px; cursor: pointer;"
                                          class="thumbnail rounded-circle" data-toggle="tooltip"
@@ -42,13 +42,13 @@
                                            class="image form-control-file" style="display: none;" value="">
                                     <input type="hidden" name="image_old" value="{{ $user->avatar }}">
                                     <small class="form-text text-muted">
-                                        Click on the image to change (required)
+                                        Click để thay đổi ảnh đại diện
                                     </small>
                                 </div>
                             </div>
 
                             <div class="position-relative row form-group">
-                                <label for="name" class="col-md-3 text-md-right col-form-label">Name</label>
+                                <label for="name" class="col-md-3 text-md-right col-form-label">Tên</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input required name="name" id="name" placeholder="Name" type="text"
                                            class="form-control" value="{{ $user->name }}">
@@ -68,7 +68,7 @@
 
                             <div class="position-relative row form-group">
                                 <label for="country"
-                                       class="col-md-3 text-md-right col-form-label">Country</label>
+                                       class="col-md-3 text-md-right col-form-label">Quốc gia</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input name="country" id="country" placeholder="Country"
                                            type="text" class="form-control" value="{{ $user->country }}">
@@ -77,7 +77,7 @@
 
                             <div class="position-relative row form-group">
                                 <label for="phone"
-                                       class="col-md-3 text-md-right col-form-label">Phone</label>
+                                       class="col-md-3 text-md-right col-form-label">Số điện thoại</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input required name="phone" id="phone" placeholder="Phone" type="tel"
                                            class="form-control" value="{{ $user->phone }}">
@@ -87,7 +87,7 @@
 
                             <div class="position-relative row form-group">
                                 <label for="description"
-                                       class="col-md-3 text-md-right col-form-label">Description</label>
+                                       class="col-md-3 text-md-right col-form-label">Mô tả</label>
                                 <div class="col-md-9 col-xl-8">
                                     <textarea name="description" id="description" class="form-control">{{ $user->description }}</textarea>
                                 </div>
@@ -99,7 +99,7 @@
                                                         <span class="btn-icon-wrapper pr-1 opacity-8">
                                                             <i class="fa fa-times fa-w-20"></i>
                                                         </span>
-                                        <span>Cancel</span>
+                                        <span>Hủy</span>
                                     </a>
 
                                     <button type="submit"
@@ -107,7 +107,7 @@
                                                         <span class="btn-icon-wrapper pr-2 opacity-8">
                                                             <i class="fa fa-download fa-w-20"></i>
                                                         </span>
-                                        <span>Save</span>
+                                        <span>Lưu</span>
                                     </button>
                                 </div>
                             </div>

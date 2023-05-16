@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 
-@section('title', 'Product-Detail')
+@section('title', 'Enter-coupon-Detail')
 
 @section('body')
 
@@ -14,9 +14,9 @@
                         <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
-                        Product
+                        Phiếu nhập
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            Quản lý nhập hàng.
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="card-body display_data">
 
                         <div class="position-relative row form-group">
-                            <label for="" class="col-md-3 text-md-right col-form-label">Images</label>
+                            <label for="" class="col-md-3 text-md-right col-form-label">Hình ảnh</label>
                             <div class="col-md-9 col-xl-8">
                                 <ul class="text-nowrap overflow-auto" id="images">
 
@@ -48,7 +48,7 @@
 
 
                         <div class="position-relative row form-group">
-                            <label for="name" class="col-md-3 text-md-right col-form-label">Name</label>
+                            <label for="name" class="col-md-3 text-md-right col-form-label">Tên sản phẩm</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $enter_coupon->product->name }}</p>
                             </div>
@@ -56,7 +56,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="qty"
-                                   class="col-md-3 text-md-right col-form-label">Enter Qty</label>
+                                   class="col-md-3 text-md-right col-form-label">Số lượng nhập</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $enter_coupon->enter_qty }}</p>
                             </div>
@@ -64,7 +64,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="price"
-                                   class="col-md-3 text-md-right col-form-label">Enter Price</label>
+                                   class="col-md-3 text-md-right col-form-label">Giá nhập</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>${{ $enter_coupon->enter_price }}</p>
                             </div>
@@ -77,7 +77,7 @@
                                                         <span class="btn-icon-wrapper pr-1 opacity-8">
                                                             <i class="fa fa-reply fa-w-20"></i>
                                                         </span>
-                                    <span>Back</span>
+                                    <span>Quay về</span>
                                 </a>
 
 

@@ -39,7 +39,7 @@
                                 <div class="main-card mb-3 card">
                                     <div class="card-body display_data">
                                         <div class="position-relative row form-group">
-                                            <label for="image" class="col-md-3 text-md-right col-form-label">Avatar</label>
+                                            <label for="image" class="col-md-3 text-md-right col-form-label">Ảnh đại diện</label>
                                             <div class="col-md-6 col-form-label">
                                                 <p>
                                                     <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip"
@@ -51,7 +51,7 @@
 
                                         <div class="position-relative row form-group">
                                             <label for="name" class="col-md-3 text-md-right col-form-label">
-                                                Name
+                                                Tên
                                             </label>
                                             <div class="col-md-6 col-form-label">
                                                 <p>{{ $user->name }}</p>
@@ -67,7 +67,7 @@
 
                                         <div class="position-relative row form-group">
                                             <label for="country"
-                                                   class="col-md-3 text-md-right col-form-label">Country</label>
+                                                   class="col-md-3 text-md-right col-form-label">Quốc gia</label>
                                             <div class="col-md-6 col-form-label">
                                                 <p>{{ $user->country }}</p>
                                             </div>
@@ -75,24 +75,23 @@
 
 
                                         <div class="position-relative row form-group">
-                                            <label for="phone" class="col-md-3 text-md-right col-form-label">Phone</label>
+                                            <label for="phone" class="col-md-3 text-md-right col-form-label">Số điện thoại</label>
                                             <div class="col-md-6 col-form-label">
                                                 <p>{{ $user->phone }}</p>
                                             </div>
                                         </div>
 
                                         <div class="position-relative row form-group">
+                                            <label for="description"
+                                                   class="col-md-3 text-md-right col-form-label">Mô tả</label>
+                                            <div class="col-md-6 col-form-label">
+                                                <p>{{ $user->description }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative row form-group">
                                             <div class="col-md-6 text-center col-form-label">
                                                 <a class="site-btn register-btn" href="./account/address">Quản lý địa chỉ</a>
 
-                                            </div>
-                                        </div>
-
-                                        <div class="position-relative row form-group">
-                                            <label for="description"
-                                                   class="col-md-3 text-md-right col-form-label">Description</label>
-                                            <div class="col-md-6 col-form-label">
-                                                <p>{{ $user->description }}</p>
                                             </div>
                                         </div>
                                     </div>

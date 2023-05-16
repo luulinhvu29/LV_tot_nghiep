@@ -15,7 +15,7 @@
                     <div>
                         Phiếu nhập
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            Quản lý nhập hàng.
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
-                        Create
+                        Thêm mới
                     </a>
                 </div>
             </div>
@@ -44,18 +44,18 @@
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
-                                                    Search
+                                                    Tìm kiếm
                                                 </button>
                                             </span>
                             </div>
                         </form>
 
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
+{{--                        <div class="btn-actions-pane-right">--}}
+{{--                            <div role="group" class="btn-group-sm btn-group">--}}
+{{--                                <button class="btn btn-focus">This week</button>--}}
+{{--                                <button class="active btn btn-focus">Anytime</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 
                     <div class="table-responsive">
@@ -63,13 +63,13 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Product</th>
-                                <th class="text-center">Performer</th>
-                                <th class="text-center">Enter Price</th>
-                                <th class="text-center">Enter Quantity</th>
-                                <th class="text-center">Total</th>
-                                <th class="text-center">Created at</th>
-                                <th class="text-center">Action</th>
+                                <th>Sản phẩm</th>
+                                <th class="text-center">Người thực hiện</th>
+                                <th class="text-center">Giá nhập</th>
+                                <th class="text-center">Số lượng nhập</th>
+                                <th class="text-center">Tổng cộng</th>
+                                <th class="text-center">Ngày tạo</th>
+                                <th class="text-center">Hành động</th>
                             </tr>
                             </thead>
 
@@ -108,7 +108,7 @@
                                 <td class="text-center">
                                     <a href="./admin/enter_coupon/{{ $enter_coupon->id }}"
                                        class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                        Details
+                                        Chi tiết
                                     </a>
 
                                     <form class="d-inline" action="./admin/enter_coupon/{{ $enter_coupon->id }}" method="post">

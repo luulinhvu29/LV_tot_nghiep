@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
-                        <h2>Doi mat khau</h2>
+                        <h2>Đổi mật khẩu</h2>
 
                         @if(session('notification'))
                             <div class="alert alert-warning" role="alert">

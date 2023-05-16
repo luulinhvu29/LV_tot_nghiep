@@ -27,43 +27,28 @@
                             <div class="card">
                                 <div class="card-heading active">
                                     <a class="active" data-toggle="collapse" data-target="#collapseOne">
-                                        Is There Anything I Should Bring?
+                                        Tôi có thể liên hệ bằng cách nào
                                     </a>
                                 </div>
                                 <div class="collapse show" id="collapseOne" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        <p>hfvefhjvdhajvfjavjhfvadsjfvhja
-                                            uagfuiagfyaufgaulgfaglfa
-                                            hvuzsdvzbvdsh</p>
+                                        <p>Email: linhvu29112001@gmail.com hoặc Số điện thoại: 0907 104 902</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseTwo">
-                                        Where Can I Find Market Research Reports?
+                                        Shop của bạn ở đâu
                                     </a>
                                 </div>
                                 <div class="collapse" id="collapseTwo" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        <p>vefhjgsjhfvadsjfvhja
-                                            faglfa.</p>
+                                        <p>Ba thang Hai - Ninh Kieu - Can Tho</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseThree">
-                                        Where Can I Find The Wall Street Journal?
-                                    </a>
-                                </div>
-                                <div class="collapse" id="collapseThree" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p>YEAHHHHHHHHHHHHHHH
-                                            !!!!!!!!!!!</p>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>

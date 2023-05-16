@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Services\Authority\AuthorityServiceInterface;
 use App\Services\User\UserServiceInterface;
 use App\Utilities\Common;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -66,7 +67,14 @@ class UserController extends Controller
             $data['avatar'] = Common::uploadFile($request->file('image'), 'front/img/user');
         }
 
-        $user = $this->userService->create($data);
+        if ($request->level){
+            $user = $this->userService->create($data);
+        }else{
+            $data['level'] = Constant::user_level_client;
+            $user = $this->userService->create($data);
+        }
+
+
 
         return redirect('admin/user/' . $user->id);
     }

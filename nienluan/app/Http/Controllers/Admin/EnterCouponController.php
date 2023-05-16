@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\EnterCoupon;
 
+use App\Models\Product;
 use App\Services\EnterCoupon\EnterCouponServiceInterface;
 use App\Services\Product\ProductServiceInterface;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function React\Promise\all;
 
 class EnterCouponController extends Controller
 {
@@ -30,9 +32,19 @@ class EnterCouponController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $enter_coupons = $this->enterCouponService->all();
+        if($request->get('search')!=null){
+            $product = $this->productService->searchAndPaginate('name', $request->get('search'))->first();
+            $enter_coupons = $this->enterCouponService->searchAndPaginate('product_id', $product->id);
+        }
+//        $product = Product::where('id',$request->get('search'))->first();
+//        if($product) {
+//            $enter_coupons = $this->enterCouponService->searchAndPaginate('product_id', $product->id);
+//        }else{
+//            $enter_coupons = $this->enterCouponService->searchAndPaginate()
+//        }
 
         return view('admin.enter_coupon.index', compact('enter_coupons'));
     }

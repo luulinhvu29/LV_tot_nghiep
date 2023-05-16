@@ -28,7 +28,7 @@
                         {{ $notification }}
                     </h4>
 
-                    <a href="./" class="primary-btn mt-5">Continue shopping</a>
+                    <a href="./" class="primary-btn mt-5">Quay về trang chủ</a>
                 </div>
             </div>
         </div>

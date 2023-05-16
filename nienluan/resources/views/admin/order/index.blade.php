@@ -13,9 +13,9 @@
                         <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
-                        Order
+                        Đơn hàng
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            Xử lý các đơn đặt hàng
                         </div>
                     </div>
                 </div>
@@ -36,18 +36,18 @@
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
-                                                    Search
+                                                    Tìm
                                                 </button>
                                             </span>
                             </div>
                         </form>
 
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
+{{--                        <div class="btn-actions-pane-right">--}}
+{{--                            <div role="group" class="btn-group-sm btn-group">--}}
+{{--                                <button class="btn btn-focus">This week</button>--}}
+{{--                                <button class="active btn btn-focus">Anytime</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 
                     <div class="table-responsive">
@@ -55,11 +55,11 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Customer / Products</th>
-                                <th class="text-center">Address</th>
-                                <th class="text-center">Amount</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Actions</th>
+                                <th>Khách hàng/ Sản phẩm</th>
+                                <th class="text-center">Địa chỉ</th>
+                                <th class="text-center">Tổng tiền</th>
+                                <th class="text-center">Trạng thái</th>
+                                <th class="text-center">Hành động</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -83,7 +83,7 @@
                                                         <div class="widget-subheading opacity-7">
                                                             {{ $order->orderDetails[0]->product->name }}
                                                             @if(count($order->orderDetails)>1)
-                                                                (and {{ count($order->orderDetails) }} other products)
+                                                                (và {{ count($order->orderDetails)-1 }} sản phẩm khác)
                                                             @endif
 
                                                         </div>
@@ -92,8 +92,8 @@
                                             </div>
                                         </td>
                                         <td class="text-center">
-                                            {{ \App\Models\Address::find($order->address)->address }}, {{ \App\Models\Address::find($order->address)->village }},
-                                            {{ \App\Models\Address::find($order->address)->town }}, {{ \App\Models\Address::find($order->address)->city }}
+                                            {{ \App\Models\Address::find($order->address)->address }}, {{ \App\Models\Address::find($order->address)->ward->name }},
+                                            {{ \App\Models\Address::find($order->address)->district->name }}, {{ \App\Models\Address::find($order->address)->city->name }}
                                         </td>
                                         <td class="text-center">${{ array_sum(array_column($order->orderDetails->toArray(), 'total')) }}</td>
                                         <td class="text-center">
@@ -110,7 +110,7 @@
                                         <td class="text-center">
                                             <a href="./admin/order/{{ $order->id }}"
                                                class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                                Details
+                                                Chi tiết
                                             </a>
 
                                             <a href="./admin/order/{{ $order->id }}/edit" data-toggle="tooltip" title="Edit"

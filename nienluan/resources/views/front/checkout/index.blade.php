@@ -48,7 +48,7 @@
                                     <input type="text" id="coun" name="country" value="{{ Auth::user()->country ?? '' }}">
                                 </div>
                                 <div class="col-lg-12">
-                                    <label for="add">Địa chỉ nhà<span>*</span></label>
+                                    <label for="add">Địa chỉ nhận hàng<span>*</span></label>
                                     <select required name="address" id="address" class="form-control">
                                         <option value="">-- Address --</option>
 
@@ -109,7 +109,7 @@
                                     <div class="payment-check">
                                         <div class="pc-item">
                                             <label for="pc-check">
-                                                Trả sau
+                                                Thanh toán khi nhận hàng
                                                 <input type="radio" name="payment_type" value="pay_later" id="pc-check" checked>
                                                 <span class="checkmark"></span>
                                             </label>

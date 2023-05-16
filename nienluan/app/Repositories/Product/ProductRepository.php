@@ -23,7 +23,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     }
 
     public function getFeaturedProductsByCategory(int $categoryId){
-        return $this->model->where('featured', true)
+        return $this->model
             ->where('product_category_id', $categoryId)
             ->get();
     }

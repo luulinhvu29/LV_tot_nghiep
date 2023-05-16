@@ -42,7 +42,7 @@
                                         <textarea placeholder="Messages" name="messages"></textarea>
 
                                         <div class="personal-rating">
-                                            <h6>Your Rating</h6>
+                                            <h6>Đánh giá</h6>
                                             <div class="rate">
                                                 <input type="radio" id="star5" name="rating" value="5" />
                                                 <label for="star5" title="text">5 stars</label>

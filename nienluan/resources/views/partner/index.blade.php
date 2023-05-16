@@ -13,9 +13,9 @@
                         <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
-                        Order
+                        Đối tác vận chuyển
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            Người bạn đồng hành đáng tin cậy.
                         </div>
                     </div>
                 </div>
@@ -36,18 +36,18 @@
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
-                                                    Search
+                                                    Tìm
                                                 </button>
                                             </span>
                             </div>
                         </form>
 
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
+{{--                        <div class="btn-actions-pane-right">--}}
+{{--                            <div role="group" class="btn-group-sm btn-group">--}}
+{{--                                <button class="btn btn-focus">This week</button>--}}
+{{--                                <button class="active btn btn-focus">Anytime</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 
                     <div class="table-responsive">
@@ -55,12 +55,12 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Customer / Products</th>
-                                <th class="text-center">Address</th>
-                                <th class="text-center">Phone</th>
-                                <th class="text-center">Amount</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Actions</th>
+                                <th>Khách hàng / Sản phẩm</th>
+                                <th class="text-center">Địa chỉ</th>
+                                <th class="text-center">Số điện thoại</th>
+                                <th class="text-center">Giá trị</th>
+                                <th class="text-center">Trạng thái</th>
+                                <th class="text-center">Hành động</th>
                             </tr>
                             </thead>
                             <tbody>

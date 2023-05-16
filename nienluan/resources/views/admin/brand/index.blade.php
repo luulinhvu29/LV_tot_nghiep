@@ -13,9 +13,9 @@
                         <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
-                        Brand
+                        Thương hiệu
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            Những thương hiệu thời trang hàng đầu của thế giới.
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
-                        Create
+                        Thêm mới
                     </a>
                 </div>
             </div>
@@ -40,22 +40,22 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search" value="{{ request('search') }}"
-                                       placeholder="Search everything" class="form-control">
+                                       placeholder="Tìm kiếm" class="form-control">
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
-                                                    Search
+                                                    Tìm
                                                 </button>
                                             </span>
                             </div>
                         </form>
 
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
+{{--                        <div class="btn-actions-pane-right">--}}
+{{--                            <div role="group" class="btn-group-sm btn-group">--}}
+{{--                                <button class="btn btn-focus">This week</button>--}}
+{{--                                <button class="active btn btn-focus">Anytime</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 
                     <div class="table-responsive">
@@ -63,8 +63,8 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Name</th>
-                                <th class="text-center">Actions</th>
+                                <th>Tên thương hiệu</th>
+                                <th class="text-center">Hành động</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -96,7 +96,7 @@
                                             <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
                                                     type="submit" data-toggle="tooltip" title="Delete"
                                                     data-placement="bottom"
-                                                    onclick="return confirm('Do you really want to delete this item?')">
+                                                    onclick="return confirm('Bạn thật sự muốn xóa thương hiệu này?')">
                                                                 <span class="btn-icon-wrapper opacity-8">
                                                                     <i class="fa fa-trash fa-w-20"></i>
                                                                 </span>

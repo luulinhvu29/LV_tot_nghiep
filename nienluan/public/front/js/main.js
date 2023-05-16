@@ -323,11 +323,12 @@ function addCart(productId){
 
                 cartHover_tbody.append(newItem);
             }
-
+           alertify.set('notifier','position', 'top-right');
            alertify.success("Đã thêm 1 sản phẩm ")
            console.log(response);
        },
        error: function (response){
+           alertify.set('notifier','position', 'top-right');
            alertify.error('Thêm sản phẩm thất bại');
             console.log(response);
        },
@@ -355,11 +356,12 @@ function removeCart(rowId){
             var cart_existItem = cart_tbody.find("tr" + "[data-rowId = '" + rowId + "']");
 
             cart_existItem.remove();
-
+            alertify.set('notifier','position', 'top-right');
             alertify.success('Đã xóa 1 sản phẩm')
             console.log(response);
         },
         error: function (response){
+            alertify.set('notifier','position', 'top-right');
             alertify.error('Xóa thất bại');
             console.log(response);
         },
@@ -386,11 +388,12 @@ function destroyCart(){
 
             $('.subtotal span').text('0')
             $('.cart-total span').text('0')
-
+            alertify.set('notifier','position', 'top-right');
             alertify.success('Đã xóa tất cả sản phẩm')
             console.log(response);
         },
         error: function (response){
+            alertify.set('notifier','position', 'top-right');
             alertify.error('Xóa thất bại');
             console.log(response);
         },
@@ -411,6 +414,7 @@ function addToCart(productId, qty){
     var quty = inputQty.value;
     // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
     if (quty > max) {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
         return;
     }
@@ -447,11 +451,12 @@ function addToCart(productId, qty){
 
                 cartHover_tbody.append(newItem);
             }
-
+            alertify.set('notifier','position', 'top-right');
             alertify.success('Đã thêm thành công ' + $("#qty-addtocart-"+productId).val() + ' sản phẩm')
             console.log(response);
         },
         error: function (response){
+            alertify.set('notifier','position', 'top-right');
             alertify.error('Thêm thất bại');
             console.log(response);
         },
@@ -473,6 +478,7 @@ function addToCartS(productId, qty){
     var quty = inputQty.value;
     // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
     if (quty > max) {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
         return;
     }
@@ -510,11 +516,12 @@ function addToCartS(productId, qty){
 
                 cartHover_tbody.append(newItem);
             }
-
+            alertify.set('notifier','position', 'top-right');
             alertify.success('Đã thêm thành công ' + $("#qty-addtocart-S-"+productId).val() + ' sản phẩm')
             console.log(response);
         },
         error: function (response){
+            alertify.set('notifier','position', 'top-right');
             alertify.error('Thêm thất bại');
             console.log(response);
         },
@@ -535,6 +542,7 @@ function addToCartM(productId, qty){
     var quty = inputQty.value;
     // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
     if (quty > max) {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
         return;
     }
@@ -571,11 +579,12 @@ function addToCartM(productId, qty){
 
                 cartHover_tbody.append(newItem);
             }
-
+            alertify.set('notifier','position', 'top-right');
             alertify.success('Đã thêm thành công ' + $("#qty-addtocart-M-"+productId).val() + ' sản phẩm')
             console.log(response);
         },
         error: function (response){
+            alertify.set('notifier','position', 'top-right');
             alertify.error('Thêm thất bại');
             console.log(response);
         },
@@ -596,6 +605,7 @@ function addToCartL(productId, qty){
     var quty = inputQty.value;
     // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
     if (quty > max) {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
         return;
     }
@@ -632,11 +642,12 @@ function addToCartL(productId, qty){
 
                 cartHover_tbody.append(newItem);
             }
-
+            alertify.set('notifier','position', 'top-right');
             alertify.success('Đã thêm thành công ' + $("#qty-addtocart-L-"+productId).val() + ' sản phẩm')
             console.log(response);
         },
         error: function (response){
+            alertify.set('notifier','position', 'top-right');
             alertify.error('Thêm thất bại');
             console.log(response);
         },
@@ -657,6 +668,7 @@ function addToCartXS(productId, qty){
     var quty = inputQty.value;
     // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
     if (quty > max) {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
         return;
     }
@@ -695,10 +707,12 @@ function addToCartXS(productId, qty){
                 cartHover_tbody.append(newItem);
             }
 
+            alertify.set('notifier','position', 'top-right');
             alertify.success('Đã thêm thành công ' + $("#qty-addtocart-XS-"+productId).val() + ' sản phẩm')
             console.log(response);
         },
         error: function (response){
+            alertify.set('notifier','position', 'top-right');
             alertify.error('Thêm thất bại');
             console.log(response);
         },
@@ -719,6 +733,7 @@ function updateCart(rowId){
     var quty = inputQty.value;
     // Kiểm tra giá trị input và ngăn chặn submit nếu không hợp lệ
     if (quty > max) {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Số lượng sản phẩm" +quty+ "vượt quá giới hạn cho phép (tối đa là " + max + ")");
         document.getElementById("qty-"+rowId).value = max;
         return;

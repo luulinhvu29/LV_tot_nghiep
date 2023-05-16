@@ -67,7 +67,6 @@
                                     <span>({{ count($product->productComments) }})</span>
                                 </div>
                                 <div class="pd-desc">
-                                    <p>{{ $product->content }}</p>
 
                                     @if($product->discount != null)
                                         <h4>${{ $product->discount }} <span>{{ $product->price }}</span></h4>
@@ -158,7 +157,7 @@
                                     </div>
                                 </div>
                                 <ul class="pd-tags">
-                                    <li><span>CATEGORIES</span>: {{ $product->productCategory->name }}</li>
+                                    <li><span>DANH MỤC</span>: {{ $product->productCategory->name }}</li>
                                     <li><span>TAGS</span>: {{ $product->tag }}</li>
                                 </ul>
                                 <div class="pd-share">
@@ -175,9 +174,9 @@
                     <div class="product-tab">
                         <div class="tab-item">
                             <ul class="nav" role="tablist">
-                                <li><a class="active" href="#tab-1" data-toggle="tab" role="tab">DESCRIPTION</a></li>
-                                <li><a href="#tab-2" data-toggle="tab" role="tab">SPECIFICATIONS</a></li>
-                                <li><a href="#tab-3" data-toggle="tab" role="tab">Customer Reviews ({{ count($product->productComments) }})</a></li>
+                                <li><a class="active" href="#tab-1" data-toggle="tab" role="tab">MÔ TẢ</a></li>
+                                <li><a href="#tab-2" data-toggle="tab" role="tab">THÔNG TIN</a></li>
+                                <li><a href="#tab-3" data-toggle="tab" role="tab">BÌNH LUẬN({{ count($product->productComments) }})</a></li>
                             </ul>
                         </div>
                         <div class="tab-item-content">
@@ -191,7 +190,7 @@
                                     <div class="specification-table">
                                         <table>
                                             <tr>
-                                                <td class="p-catagory">Customer Rating</td>
+                                                <td class="p-catagory">Đánh giá</td>
                                                 <td>
                                                     <div class="pd-rating">
 
@@ -208,31 +207,31 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="p-catagory">Price</td>
+                                                <td class="p-catagory">Giá</td>
                                                 <td>
                                                     <div class="p-price">${{ $product->price }}</div>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="p-catagory">Add to Cart</td>
+                                                <td class="p-catagory">Thêm vào giỏ hàng</td>
                                                 <td>
-                                                    <div class="cart-add">+ add to cart</div>
+                                                    <div class="cart-add">+ thêm vào giỏ hàng</div>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="p-catagory">Availability</td>
+                                                <td class="p-catagory">Còn</td>
                                                 <td>
-                                                    <div class="p-stock">{{ $product->qty }} in stock</div>
+                                                    <div class="p-stock">{{ $product->qty }} sản phẩm</div>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="p-catagory">Weight</td>
+                                                <td class="p-catagory">Trọng lượng</td>
                                                 <td>
                                                     <div class="p-weight">{{ $product->weight }}kg</div>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="p-catagory">Size</td>
+                                                <td class="p-catagory">Kích thước</td>
                                                 <td>
                                                     <div class="p-size">
                                                         @foreach(array_unique(array_column($product->productDetails->toArray(), 'size')) as $productSize)
@@ -241,14 +240,14 @@
                                                     </div>
                                                 </td>
                                             </tr>
-{{--                                            <tr>--}}
-{{--                                                <td class="p-catagory">Color</td>--}}
-{{--                                                <td>--}}
-{{--                                                    @foreach(array_unique(array_column($product->productDetails->toArray(), 'color')) as $productColor)--}}
-{{--                                                        <span class="cs-{{ $productColor }}"></span>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </td>--}}
-{{--                                            </tr>--}}
+                                            {{--                                            <tr>--}}
+                                            {{--                                                <td class="p-catagory">Color</td>--}}
+                                            {{--                                                <td>--}}
+                                            {{--                                                    @foreach(array_unique(array_column($product->productDetails->toArray(), 'color')) as $productColor)--}}
+                                            {{--                                                        <span class="cs-{{ $productColor }}"></span>--}}
+                                            {{--                                                    @endforeach--}}
+                                            {{--                                                </td>--}}
+                                            {{--                                            </tr>--}}
                                             <tr>
                                                 <td class="p-catagory">Sku</td>
                                                 <td>
@@ -260,7 +259,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                     <div class="customer-review-option">
-                                        <h4>{{ count($product->productComments) }} Comments</h4>
+                                        <h4>{{ count($product->productComments) }} bình luận</h4>
                                         <div class="comment-option">
                                             @foreach($product->productComments as $productComment)
                                                 <div class="co-item">
@@ -284,43 +283,43 @@
                                             @endforeach
                                         </div>
 
-                                        <div class="leave-comment">
-                                            <h4>Leave a Comment</h4>
-                                            <form action="" method="post" class="comment-form">
-                                                @csrf
-                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <input type="hidden" name="user_id" value="{{ \Illuminate\Support\Facades\Auth::user()->id ?? null }}">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <input type="text" placeholder="Name" name="name">
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" placeholder="Email" name="email">
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <textarea placeholder="Messages" name="messages"></textarea>
+                                        {{--                                        <div class="leave-comment">--}}
+                                        {{--                                            <h4>Leave a Comment</h4>--}}
+                                        {{--                                            <form action="" method="post" class="comment-form">--}}
+                                        {{--                                                @csrf--}}
+                                        {{--                                                <input type="hidden" name="product_id" value="{{ $product->id }}">--}}
+                                        {{--                                                <input type="hidden" name="user_id" value="{{ \Illuminate\Support\Facades\Auth::user()->id ?? null }}">--}}
+                                        {{--                                                <div class="row">--}}
+                                        {{--                                                    <div class="col-lg-6">--}}
+                                        {{--                                                        <input type="text" placeholder="Name" name="name">--}}
+                                        {{--                                                    </div>--}}
+                                        {{--                                                    <div class="col-lg-6">--}}
+                                        {{--                                                        <input type="text" placeholder="Email" name="email">--}}
+                                        {{--                                                    </div>--}}
+                                        {{--                                                    <div class="col-lg-12">--}}
+                                        {{--                                                        <textarea placeholder="Messages" name="messages"></textarea>--}}
 
-                                                        <div class="personal-rating">
-                                                            <h6>Your Rating</h6>
-                                                            <div class="rate">
-                                                                <input type="radio" id="star5" name="rating" value="5" />
-                                                                <label for="star5" title="text">5 stars</label>
-                                                                <input type="radio" id="star4" name="rating" value="4" />
-                                                                <label for="star4" title="text">4 stars</label>
-                                                                <input type="radio" id="star3" name="rating" value="3" />
-                                                                <label for="star3" title="text">3 stars</label>
-                                                                <input type="radio" id="star2" name="rating" value="2" />
-                                                                <label for="star2" title="text">2 stars</label>
-                                                                <input type="radio" id="star1" name="rating" value="1" />
-                                                                <label for="star1" title="text">1 star</label>
-                                                            </div>
-                                                        </div>
+                                        {{--                                                        <div class="personal-rating">--}}
+                                        {{--                                                            <h6>Your Rating</h6>--}}
+                                        {{--                                                            <div class="rate">--}}
+                                        {{--                                                                <input type="radio" id="star5" name="rating" value="5" />--}}
+                                        {{--                                                                <label for="star5" title="text">5 stars</label>--}}
+                                        {{--                                                                <input type="radio" id="star4" name="rating" value="4" />--}}
+                                        {{--                                                                <label for="star4" title="text">4 stars</label>--}}
+                                        {{--                                                                <input type="radio" id="star3" name="rating" value="3" />--}}
+                                        {{--                                                                <label for="star3" title="text">3 stars</label>--}}
+                                        {{--                                                                <input type="radio" id="star2" name="rating" value="2" />--}}
+                                        {{--                                                                <label for="star2" title="text">2 stars</label>--}}
+                                        {{--                                                                <input type="radio" id="star1" name="rating" value="1" />--}}
+                                        {{--                                                                <label for="star1" title="text">1 star</label>--}}
+                                        {{--                                                            </div>--}}
+                                        {{--                                                        </div>--}}
 
-                                                        <button type="submit" class="site-btn">Send message</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                        {{--                                                        <button type="submit" class="site-btn">Send message</button>--}}
+                                        {{--                                                    </div>--}}
+                                        {{--                                                </div>--}}
+                                        {{--                                            </form>--}}
+                                        {{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>
@@ -347,38 +346,7 @@
 
                 @foreach($relatedProducts as $product)
                     <div class="col-lg-3 col-sm-6">
-                        <div class="product-item item">
-                            <div class="pi-pic">
-                                <img src="front/img/products/{{ $product->productImages[0]->path}}" alt="">
-
-                                @if($product->discount != null)
-                                    <div class="sale">Sale</div>
-                                @endif
-
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="./cart/add/{{ $product->id }}"><i class="icon_bag_alt"></i> </a></li>
-                                    <li class="quick-view"><a href="shop/product/{{ $product->id }}">+ Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="category-name">{{ $product->tag}}</div>
-                                <a href="shop/product/{{ $product->id }}">
-                                    <h5>{{ $product->name}}</h5>
-                                </a>
-                                <div class="product-price">
-                                    @if($product->discount != null)
-                                        ${{ $product->discount}}
-                                        <span>${{ $product->price}}</span>
-                                    @else
-                                        ${{ $product->price}}
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
+                        @include('front.components.product-item', ['product' => $product])
                     </div>
                 @endforeach
             </div>

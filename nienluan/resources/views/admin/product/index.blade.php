@@ -13,9 +13,9 @@
                         <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
-                        Product
+                        Sản phẩm
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            Quản lý các sản phẩm thời trang siêu việt.
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
-                        Create
+                        Thêm mới
                     </a>
                 </div>
             </div>
@@ -44,18 +44,18 @@
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
-                                                    Search
+                                                    Tìm
                                                 </button>
                                             </span>
                             </div>
                         </form>
 
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
+{{--                        <div class="btn-actions-pane-right">--}}
+{{--                            <div role="group" class="btn-group-sm btn-group">--}}
+{{--                                <button class="btn btn-focus">This week</button>--}}
+{{--                                <button class="active btn btn-focus">Anytime</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 
                     <div class="table-responsive">
@@ -63,11 +63,10 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Name / Brand</th>
-                                <th class="text-center">Price</th>
-                                <th class="text-center">Qty</th>
-                                <th class="text-center">Featured</th>
-                                <th class="text-center">Actions</th>
+                                <th>Tên sảm phẩm / Thương hiệu</th>
+                                <th class="text-center">Giá</th>
+                                <th class="text-center">Số lượng</th>
+                                <th class="text-center">Hành động</th>
                             </tr>
                             </thead>
 
@@ -99,15 +98,11 @@
                                 </td>
                                 <td class="text-center">${{ $product->price }}</td>
                                 <td class="text-center">{{ $product->qty }}</td>
-                                <td class="text-center">
-                                    <div class="badge badge-success mt-2">
-                                        {{ $product->featured ? 'Yes' : 'False' }}
-                                    </div>
-                                </td>
+
                                 <td class="text-center">
                                     <a href="./admin/product/{{ $product->id }}"
                                        class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                        Details
+                                        Chi tiết
                                     </a>
                                     <a href="./admin/product/{{ $product->id }}/edit" data-toggle="tooltip" title="Edit"
                                        data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">

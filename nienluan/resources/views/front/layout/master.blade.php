@@ -162,7 +162,7 @@
                                         </div>
                                         <div class="select-button">
                                             <a href="./cart" class="primary-btn view-card">Xem giỏ hàng</a>
-                                            <a href="./checkout" class="primary-btn checkout-btn">đặt hàng</a>
+                                            <a href="./checkout" class="primary-btn checkout-btn">Đặt hàng</a>
                                         </div>
                                     </div>
                                 </div>

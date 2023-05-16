@@ -32,17 +32,23 @@
                                 <form action="">
                                     <div class="select-option">
                                         <select name="sort_by" class="sorting" onchange="this.form.submit();">
-                                            <option {{ request('sort_by')=='latest' ? 'selected':'' }} value="latest">Sorting: Latest</option>
-                                            <option {{ request('sort_by')=='oldest' ? 'selected':'' }}  value="oldest">Sorting: Oldest</option>
-                                            <option {{ request('sort_by')=='name-ascending' ? 'selected':'' }}  value="name-ascending">Sorting: Name A-Z</option>
-                                            <option {{ request('sort_by')=='name-descending' ? 'selected':'' }}  value="name-descending">Sorting: Name Z-A</option>
-                                            <option {{ request('sort_by')=='price-ascending' ? 'selected':'' }}  value="price-ascending">Sorting: Price Ascending</option>
-                                            <option {{ request('sort_by')=='price-descending' ? 'selected':'' }}  value="price-descending">Sorting: Price Descending</option>
+                                            <option {{ request('sort_by')=='latest' ? 'selected':'' }} value="latest">Sắp xếp: Mới nhất</option>
+                                            <option {{ request('sort_by')=='oldest' ? 'selected':'' }}  value="oldest">Sắp xếp: Cũ nhất</option>
+                                            <option {{ request('sort_by')=='name-ascending' ? 'selected':'' }}  value="name-ascending">Sắp xếp: Tên A-Z</option>
+                                            <option {{ request('sort_by')=='name-descending' ? 'selected':'' }}  value="name-descending">Sắp xếp: Tên Z-A</option>
+                                            <option {{ request('sort_by')=='price-ascending' ? 'selected':'' }}  value="price-ascending">Sắp xếp: Giá tăng dần</option>
+                                            <option {{ request('sort_by')=='price-descending' ? 'selected':'' }}  value="price-descending">Sắp xếp: Giá giảm dần</option>
                                         </select>
                                         <select name="show" class="p-show" onchange="this.form.submit();">
-                                            <option {{ request('sort_by')=='3' ? 'selected':'' }} value="3">Show: 3</option>
-                                            <option {{ request('sort_by')=='9' ? 'selected':'' }} value="9">Show: 9</option>
-                                            <option {{ request('sort_by')=='15' ? 'selected':'' }} value="15">Show: 15</option>
+                                            @if(request('sort_by'))
+                                                <option {{ request('sort_by')=='3' ? 'selected':'' }} value="3">Show: 3</option>
+                                                <option {{ request('sort_by')=='9' ? 'selected':'' }} value="9">Show: 9</option>
+                                                <option {{ request('sort_by')=='15' ? 'selected':'' }} value="15">Show: 15</option>
+                                            @else
+                                                <option value="3">Show: 3</option>
+                                                <option selected value="9">Show: 9</option>
+                                                <option value="15">Show: 15</option>
+                                            @endif
                                         </select>
                                     </div>
                                 </form>
